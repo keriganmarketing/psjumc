@@ -73,8 +73,10 @@
 .slider,
 .slides,
 .slide {
+  position: relative;
   display: block;
-  height:100vh;
+  height:100%;
+  width: 100%;
   -webkit-transition: opacity linear 1.5s;
   transition:opacity linear 1.5s;
   background-size: cover;
@@ -97,6 +99,8 @@
   transition-duration: 2.5s;
   opacity:0;
   z-index: -1;
+  background-position: center;
+  background-size: cover;
 
   .container {
     height:100%;

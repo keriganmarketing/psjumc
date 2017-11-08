@@ -11,10 +11,6 @@ body {
   overflow-x: initial;
 }
 
-body * {
-  font-family: 'Raleway', sans-serif;
-}
-
 #app {
   display: flex;
   flex-direction: column;
@@ -101,6 +97,13 @@ body * {
     -o-transition: all linear .5s;
     transition: all linear .5s;
     position: relative;
+
+    @media screen and (min-width: 1084px){
+      .container {
+        max-width:1012px;
+        width:1012px;
+      }
+    }
   }
 
   .site-wrapper.menu-open {
@@ -133,34 +136,37 @@ body * {
 //Sticky Header
 #top {
   width: 100%;
-  position: absolute;
+  position: relative;
   z-index: 3;
+
+  @media screen and (min-width: $desktop) {
+    position: fixed;
+    height: 150px;
+  }
 
   .navbar {
     background-color: #FFF;
     width: 100%;
+    min-height: 100%;
     @media screen and (min-width: $desktop) {
       background-color: transparent;
     }
 
     .navbar-brand {
+      min-height: 100%;
       img {
         padding: .5rem 1rem;
-        max-height: 3rem;
+        height:100%;
+        width:auto;
       }
     }
 
     div#main-menu {
       display: none;
-    }
 
-    @media screen and (min-width: $desktop) {
-      position: fixed;
-
-      div#main-menu {
+      @media screen and (min-width: $desktop) {
         display: flex;
       }
-
     }
 
   }
@@ -175,41 +181,20 @@ body * {
 }
 
 
-
+//Middle section
 #mid {
   position: relative;
   flex: 1 0 auto;
   z-index: 2;
+
+  .section.home-header {
+    background-image: url('/wp-content/themes/kma-slim/img/water photo.png');
+    background-position: center;
+    background-size: cover;
+  }
+
 }
 
-.is-transparent {
-  background-color: transparent;
-}
-
-.full-bg {
-  background-size: cover;
-  background-attachment: fixed;
-}
-
-a.clickdown.icon.center {
-  position: relative;
-  display: inline-block;
-  height: 40px;
-  width: 40px;
-  border: 1px solid #FFF;
-  border-radius: 50%;
-  text-align: center;
-  vertical-align: middle;
-  top: -50px;
-  z-index: 30;
-  left: 50%;
-  margin-left: -20px;
-}
-
-.clickdown i.fa.fa-angle-down {
-  font-size: 2.2em;
-  line-height: 1.15em;
-}
 
 #bot {
   position: relative;
