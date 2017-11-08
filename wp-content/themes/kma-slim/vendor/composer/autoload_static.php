@@ -14,6 +14,10 @@ class ComposerStaticInitce01450caa094108bfd947aa69a52fc9
     );
 
     public static $prefixLengthsPsr4 = array (
+        'V' => 
+        array (
+            'Vimeo\\' => 6,
+        ),
         'P' => 
         array (
             'Psr\\Http\\Message\\' => 17,
@@ -31,6 +35,10 @@ class ComposerStaticInitce01450caa094108bfd947aa69a52fc9
     );
 
     public static $prefixDirsPsr4 = array (
+        'Vimeo\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/vimeo/vimeo-api/src/Vimeo',
+        ),
         'Psr\\Http\\Message\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/http-message/src',

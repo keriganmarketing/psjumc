@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Vimeo\\' => array($vendorDir . '/vimeo/vimeo-api/src/Vimeo'),
     'Psr\\Http\\Message\\' => array($vendorDir . '/psr/http-message/src'),
     'Includes\\Modules\\' => array($baseDir . '/inc/modules'),
     'GuzzleHttp\\Psr7\\' => array($vendorDir . '/guzzlehttp/psr7/src'),
