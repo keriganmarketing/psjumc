@@ -16,5 +16,3 @@
 </head>
 
 <body <?php body_class(); ?> >
-<a class="skip-link screen-reader-text" href="#content"><?php _e('Skip to content', 'kstrap'); ?></a>
-<div id="app">

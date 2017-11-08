@@ -87,6 +87,7 @@
   position: absolute;
   top: 50%;
   z-index: 30;
+  margin-top:-1.5rem;
 }
 
 .slider-right {
@@ -102,8 +103,9 @@
   background-position: center;
   background-size: cover;
 
-  .container {
+  .content-container {
     height:100%;
+    padding:0 4rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -131,4 +133,8 @@ Social Media
     width: 40px;
     margin: .1rem .25rem;
   }
+}
+
+.content {
+  padding:0 2rem;
 }

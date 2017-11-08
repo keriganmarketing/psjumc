@@ -12,7 +12,7 @@ include(locate_template('template-parts/sections/top.php'));
 ?>
 <div id="mid" >
     <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-        <section class="hero is-light">
+        <div class="section top-section support-header" >
             <div class="hero-body">
                 <div class="container">
                     <h1 class="title"><?php echo $headline; ?></h1>
@@ -24,7 +24,7 @@ include(locate_template('template-parts/sections/top.php'));
                     <?php endif; ?>
                 </div>
             </div>
-        </section>
+        </div>
         <section id="content" class="content section">
             <div class="container">
                 <div class="entry-content">

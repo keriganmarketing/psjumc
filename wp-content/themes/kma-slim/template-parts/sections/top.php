@@ -9,54 +9,64 @@ use Includes\Modules\Navwalker\BulmaNavwalker;
  * @version 1.2
  */
 ?>
-<div id="MobileNavMenu" :class="[{ 'is-active': isOpen }, 'navbar']">
-    <?php wp_nav_menu([
-        'theme_location' => 'mobile-menu',
-        'container'      => false,
-        'menu_class'     => 'navbar-start',
-        'fallback_cb'    => '',
-        'menu_id'        => 'mobile-menu',
-        'link_before'    => '',
-        'link_after'     => '',
-        'items_wrap'     => '<div id="%1$s" class="%2$s">%3$s</div>',
-        'walker'         => new BulmaNavwalker()
-    ]); ?>
-</div>
-<div :class="['site-wrapper', { 'menu-open': isOpen }, {'full-height': footerStuck}]">
-    <div class="site-mobile-overlay"></div>
+<a class="skip-link screen-reader-text" href="#content"><?php _e('Skip to content', 'kmaslim'); ?></a>
+<div id="app">
+    <div id="MobileNavMenu" :class="[{ 'is-active': isOpen }, 'navbar']">
+        <?php wp_nav_menu([
+            'theme_location' => 'mobile-menu',
+            'container'      => false,
+            'menu_class'     => 'navbar-start',
+            'fallback_cb'    => '',
+            'menu_id'        => 'mobile-menu',
+            'link_before'    => '',
+            'link_after'     => '',
+            'items_wrap'     => '<div id="%1$s" class="%2$s">%3$s</div>',
+            'walker'         => new BulmaNavwalker()
+        ]); ?>
+    </div>
+    <div :class="['site-wrapper', { 'menu-open': isOpen }, {'full-height': footerStuck }, {'scrolling': isScrolling }]">
+        <div class="site-mobile-overlay"></div>
 
-    <header id="top" class="header">
-        <div class="container">
-            <nav class="navbar">
+        <header id="top" class="header" >
+            <div class="container">
+                <nav class="navbar">
 
-                <div class="navbar-brand">
-                    <a href="/">
-                        <img src="<?= get_template_directory_uri() . '/img/psjumc-logo.svg'; ?>" alt="<?= get_bloginfo(); ?>" >
-                    </a>
+                    <div class="navbar-brand">
+                        <a href="/">
+                            <img src="<?= get_template_directory_uri() . '/img/psjumc-logo.svg'; ?>" alt="<?= get_bloginfo(); ?>" class="logo" >
+                        </a>
 
-                    <div class="navbar-burger burger" id="MobileNavBurger" data-target="MobileNavMenu" @click="toggleMenu">
-                        <span></span>
-                        <span></span>
-                        <span></span>
+                        <div class="navbar-burger burger" id="MobileNavBurger" data-target="MobileNavMenu" @click="toggleMenu">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
                     </div>
-                </div>
 
-                <?php wp_nav_menu([
-                    'theme_location' => 'main-menu',
-                    'container'      => false,
-                    'menu_class'     => 'navbar-end',
-                    'fallback_cb'    => '',
-                    'menu_id'        => 'main-menu',
-                    'link_before'    => '',
-                    'link_after'     => '',
-                    'items_wrap'     => '<div id="%1$s" class="%2$s">%3$s</div>',
-                    'walker'         => new BulmaNavwalker()
-                ]); ?>
+                    <?php wp_nav_menu([
+                        'theme_location' => 'main-menu',
+                        'container'      => false,
+                        'menu_class'     => 'navbar-end',
+                        'fallback_cb'    => '',
+                        'menu_id'        => 'main-menu',
+                        'link_before'    => '',
+                        'link_after'     => '',
+                        'items_wrap'     => '<div id="%1$s" class="%2$s">%3$s</div>',
+                        'walker'         => new BulmaNavwalker()
+                    ]); ?>
 
-            </nav>
+                    <div class="navbar-end">
+                        <div class="navbar-item">
+                            <a href="/">
+                                <img src="<?= get_template_directory_uri() . '/img/Ways to give.svg'; ?>" alt="ways to give to <?= get_bloginfo(); ?>" >
+                            </a>
+                        </div>
+                    </div>
 
-        </div>
-    </header>
+                </nav>
+
+            </div>
+        </header>
 
 
 

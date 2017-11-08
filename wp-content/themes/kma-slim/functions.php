@@ -77,4 +77,4 @@ function kmaslim_scripts() {
 add_action( 'wp_enqueue_scripts', 'kmaslim_scripts' );
 
 //Remove WordPress's content filtering so we can make our own tags AND use them.
-remove_filter( 'the_content', 'wpautop' );
+//remove_filter( 'the_content', 'wpautop' );
