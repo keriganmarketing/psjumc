@@ -9,8 +9,8 @@ class ComposerStaticInitce01450caa094108bfd947aa69a52fc9
     public static $files = array (
         'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
         'a0edc8309cc5e1d60e3047b5df6b7052' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/functions_include.php',
-        'de85a44be454aa97188dad52ed888bed' => __DIR__ . '/..' . '/panique/laravel-sass/sass-compiler.php',
         '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
+        'de85a44be454aa97188dad52ed888bed' => __DIR__ . '/..' . '/panique/laravel-sass/sass-compiler.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -21,6 +21,10 @@ class ComposerStaticInitce01450caa094108bfd947aa69a52fc9
         'P' => 
         array (
             'Psr\\Http\\Message\\' => 17,
+        ),
+        'K' => 
+        array (
+            'Kerigan\\Facebook\\' => 17,
         ),
         'I' => 
         array (
@@ -42,6 +46,10 @@ class ComposerStaticInitce01450caa094108bfd947aa69a52fc9
         'Psr\\Http\\Message\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/http-message/src',
+        ),
+        'Kerigan\\Facebook\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/kerigansolutions/facebookfeed/src',
         ),
         'Includes\\Modules\\' => 
         array (
