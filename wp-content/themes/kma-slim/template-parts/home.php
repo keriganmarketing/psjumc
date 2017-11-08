@@ -21,12 +21,14 @@ include(locate_template('template-parts/sections/top.php'));
 
                 <div class="columns is-multiline">
                     <div class="column is-8-desktop">
-                        <bulma-slider>
-                            <?php
-                            $slider = new BulmaSlider();
-                            echo $slider->getSlider('home-page-slider');
-                            ?>
-                        </bulma-slider>
+                        <div class="slider-container">
+                            <bulma-slider>
+                                <?php
+                                $slider = new BulmaSlider();
+                                echo $slider->getSlider('home-page-slider');
+                                ?>
+                            </bulma-slider>
+                        </div>
                     </div>
                     <div class="column is-12 is-4-desktop">
                         <div class="columns is-multiline">

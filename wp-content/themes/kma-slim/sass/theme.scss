@@ -152,10 +152,27 @@ body {
         text-transform: uppercase;
         color: #31081F
       }
-      a.menu-item:hover, a.current_page_item, a.navbar-link.is-active {
-        color: #862C1B;
-        background-color: transparent;
+
+      .navbar-link::after {
+        content: "";
+        display: none;
       }
+
+      .navbar-dropdown {
+        top: 68%;
+        padding: .5rem;
+        min-width: 200px;
+      }
+
+    }
+
+    .navbar-item a.menu-item:hover, a.current_page_item,
+    .navbar-item a.navbar-link.is-active,
+    .navbar-item.has-dropdown:hover .navbar-link,
+    .navbar-item.has-dropdown.is-active .navbar-link,
+    .navbar-item.has-dropdown:hover .navbar-link {
+      color: #862C1B;
+      background-color: transparent;
     }
 
     div#main-menu {
@@ -176,6 +193,12 @@ body {
     height:80px !important;
     width:124px !important;
   }
+
+  .navbar-dropdown {
+    top: 100% !important;
+    padding: .5rem;
+    min-width: 200px;
+  }
 }
 
 //Middle section
@@ -191,6 +214,9 @@ body {
     z-index: 1;
     background-color: transparent;
     padding: 2.5rem 0;
+    @media screen and (min-width: $tablet){
+      padding: 3rem 0 6rem;
+    }
 
     .section-title {
       .title {
@@ -205,16 +231,38 @@ body {
   }
 
   .section.top-section {
-    padding-top: 165px;
+    padding-top: 1rem;
+    @media screen and (min-width: $desktop){
+      padding-top: 165px;
+    }
   }
 
   .section.home-header {
     background-image: url('/wp-content/themes/kma-slim/img/water photo.png');
     background-position: center;
     background-size: cover;
+
+    .slider-container {
+      height: 330px;
+      @media screen and (min-width: $tablet){
+        height:623px;
+      }
+      @media screen and (min-width: $desktop){
+        height:100%;
+      }
+
+      .title {
+        font-family: $header-font-family;
+      }
+    }
+
   }
 
   .section.entry-content {
+    padding: 3rem 0;
+    @media screen and (min-width: $tablet){
+      padding: 5rem 0 6rem;
+    }
     .title {
       font-family: $header-font-family;
       font-weight: 300;
@@ -226,6 +274,9 @@ body {
       color: #5dc5cd;
       font-size: 2.4em;
     }
+    p {
+      text-align: justify;
+    }
   }
 
   .section.entry-content.home {
@@ -235,10 +286,13 @@ body {
   }
 
   .section.connect {
-
     background-image: url('/wp-content/themes/kma-slim/img/brick wall.png');
     background-position: center;
     background-size: cover;
+    padding: 2.5rem 0 3rem;
+    @media screen and (min-width: $tablet){
+      padding: 3rem 0 8rem;
+    }
 
     .card {
       height:100%;
@@ -253,6 +307,10 @@ body {
     }
   }
 
+  .section.subscribe {
+    background-color: #038a99;
+  }
+
   .mini-photo-gallery {
     .photos {
       text-align: center;
@@ -261,7 +319,7 @@ body {
 
       .column.is-4 {
         display: inline-block;
-        width:33%;
+        width:32.5%;
         padding:.2rem;
       }
     }
@@ -273,4 +331,23 @@ body {
 #bot {
   position: relative;
   z-index: 1;
+  background-image: url("/wp-content/themes/kma-slim/img/shore.png");
+  background-size: cover;
+
+  .bottom-nav {
+    .navbar {
+      justify-content: center;
+      a {
+        font-family: $header-font-family;
+        text-transform: uppercase;
+        color: rgba(49,3,31,.4);
+        font-size:1.2em;
+      }
+    }
+  }
+}
+
+#bot-bot {
+  padding:.5rem 0;
+  background-color: #903523;
 }

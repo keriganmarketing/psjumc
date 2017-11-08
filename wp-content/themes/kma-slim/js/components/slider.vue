@@ -41,6 +41,7 @@
                 }
                 this.activeSlide++
                 this.slides[this.activeSlide]._data.isActive = true
+                this.slides[this.activeSlide]._data.zindex = 10
             },
 
             prevSlide(){
@@ -50,6 +51,7 @@
                     this.activeSlide = this.slides.length-1
                 }
                 this.slides[this.activeSlide]._data.isActive = true
+                this.slides[this.activeSlide]._data.zindex = 10
             },
 
             clickNext(){

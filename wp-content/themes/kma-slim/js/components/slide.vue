@@ -20,13 +20,12 @@
         },
 
         created(){
-            if(this.active == true){ this.isActive = true }
+            if(this.active === true){ this.isActive = true }
         },
 
         computed: {
             zindex: function(){
-                var index = this.id;
-                return (20 - index);
+                return (this.active === true ? 20 - this.id : 0);
             }
         }
 

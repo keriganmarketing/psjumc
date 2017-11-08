@@ -21,7 +21,7 @@ include(locate_template('template-parts/sections/top.php'));
                         <div class="entry-meta">
                             <?php //kmaslim_posted_on(); ?>
                         </div>
-                    <?php endif; ?>...
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
