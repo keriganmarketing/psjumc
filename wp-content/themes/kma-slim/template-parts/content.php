@@ -20,8 +20,8 @@ include(locate_template('template-parts/sections/top.php'));
                     <?php if ( 'post' === get_post_type() ) : ?>
                         <div class="entry-meta">
                             <?php //kmaslim_posted_on(); ?>
-                        </div><!-- .entry-meta -->
-                    <?php endif; ?>
+                        </div>
+                    <?php endif; ?>...
                 </div>
             </div>
         </div>
@@ -40,9 +40,9 @@ include(locate_template('template-parts/sections/top.php'));
                         'after'  => '</div>',
                     ) );
                     ?>
-                </div><!-- .entry-content -->
+                </div>
             </div>
         </section>
-    </article><!-- #post-## -->
+    </article>
 </div>
 <?php include(locate_template('template-parts/sections/bot.php')); ?>

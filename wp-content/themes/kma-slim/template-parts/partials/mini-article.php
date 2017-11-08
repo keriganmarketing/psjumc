@@ -7,7 +7,7 @@
  */
 
 $headline = ($post->post_name == 'home' ? 'News' : '');
-
+$content = 'Lorem ipsum dolor sit amet, eam natum utroque in. Ut clita patrioque est, usu ne putant virtute, novum molestie pertinacia sea ea. Persius fabellas no quo. Iisque persequeris vix te.';
 ?>
 <div class="card mini-article">
     <div class="card-image">
@@ -17,6 +17,6 @@ $headline = ($post->post_name == 'home' ? 'News' : '');
     </div>
     <div class="card-content">
         <?= ($headline!='' ? '<h3 class="title">'.$headline.'</h3>' : null); ?>
-        <?php $trimmed = wp_trim_words( $post->post_content, $num_words = 20, '...' ); ?>
+        <?= wp_trim_words( $content, $num_words = 23, ' <a href="#">Read more</a>...' ); ?>
     </div>
 </div>

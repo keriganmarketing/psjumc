@@ -12,29 +12,25 @@ include(locate_template('template-parts/sections/top.php'));
 ?>
 <div id="mid" >
     <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-        <section class="hero is-light">
+        <div class="section top-section support-header" >
             <div class="hero-body">
                 <div class="container">
-                    <h1 class="title"><?php echo $headline; ?></h1>
+                    <h1 class="title">News</h1>
                     <?php echo ($subhead!='' ? '<p class="subtitle">'.$subhead.'</p>' : null); ?>
                 </div>
             </div>
-        </section>
-        <section id="content" class="content section">
+        </div>
+        <section id="content" class="section news">
             <div class="container">
                 <div class="columns is-multiline">
-                <?php
-
-                    while ( have_posts() ) : the_post();
-
-                        get_template_part( 'template-parts/partials/mini-article', get_post_format() );
-
-                    endwhile;
-
-                ?>
+                <?php for($i=1;$i<=9;$i++){ ?>
+                    <div class="column is-4">
+                        <?php include(locate_template('template-parts/partials/mini-article.php')); ?>
+                    </div>
+                <?php } ?>
                 </div>
             </div>
         </section>
-    </article><!-- #post-## -->
+    </article>
 </div>
 <?php include(locate_template('template-parts/sections/bot.php')); ?>

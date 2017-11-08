@@ -8,8 +8,7 @@
 get_header();
 if (have_posts()) :
     if (is_home()) { //multipart template, archive or whatever
-
-        get_template_part('template-parts/blog', get_post_format());
+        get_template_part('template-parts/blog');
     } else {
         while (have_posts()) :
             the_post();
