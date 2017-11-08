@@ -8,6 +8,7 @@
     }
   },
   "require": {
-    "guzzlehttp/guzzle": "^6.3"
+    "guzzlehttp/guzzle": "^6.3",
+    "vimeo/vimeo-api": "^1.3"
   }
 }
