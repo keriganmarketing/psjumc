@@ -17,6 +17,6 @@ $content = 'Lorem ipsum dolor sit amet, eam natum utroque in. Ut clita patrioque
     </div>
     <div class="card-content">
         <?= ($headline!='' ? '<h3 class="title">'.$headline.'</h3>' : null); ?>
-        <?= wp_trim_words( $content, $num_words = 23, ' <a href="#">Read more</a>...' ); ?>
+        <?= wp_trim_words( $content, $num_words = 22, ' <a href="#">Read more</a>...' ); ?>
     </div>
 </div>

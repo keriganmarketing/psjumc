@@ -68,8 +68,8 @@ body {
 
     @media screen and (min-width: 1084px){
       .container {
-        max-width:1012px;
-        width:1012px;
+        max-width: 960px;
+        width: 960px;
       }
     }
   }
@@ -207,6 +207,33 @@ body {
   flex: 1 0 auto;
   z-index: 2;
 
+  //assets
+  .photo-button {
+    display: block;
+  }
+
+  .button {
+    padding: 1.5rem 3rem;
+    font-weight:700;
+  }
+
+  button.button, input[type="submit"].button {
+    line-height: 1;
+    padding-bottom: 0.5em;
+    padding-top: 0.45em;
+  }
+
+  .button.is-light {
+    color: #003922;
+    border:1px solid #003922;
+  }
+
+  .fancy {
+    font-family: $fancy-font;
+    font-size: 1.2em;
+  }
+
+  //sections
   .section {
     clear: both;
     overflow: hidden;
@@ -309,6 +336,31 @@ body {
 
   .section.subscribe {
     background-color: #038a99;
+    padding: 2.5rem 0;
+    @media screen and (min-width: $tablet){
+      padding: 3rem 0;
+    }
+
+    .section-content {
+      width: 370px;
+      max-width: 100%;
+      padding: 1rem;
+      margin: auto;
+      text-align: center;
+      color: #FFF;
+
+      input {
+        text-align: center;
+        margin:1rem 0;
+      }
+    }
+  }
+
+  //partials
+  .mini-worship-times {
+    .card-content {
+      padding: 1.5rem 1rem;
+    }
   }
 
   .mini-photo-gallery {
@@ -333,6 +385,11 @@ body {
   z-index: 1;
   background-image: url("/wp-content/themes/kma-slim/img/shore.png");
   background-size: cover;
+  background-position: center bottom;
+  padding: 2rem 0;
+  @media screen and (min-width: $tablet){
+    padding: 3rem 0 3rem;
+  }
 
   .bottom-nav {
     .navbar {
@@ -341,10 +398,34 @@ body {
         font-family: $header-font-family;
         text-transform: uppercase;
         color: rgba(49,3,31,.4);
-        font-size:1.2em;
+        font-size:1.8em;
       }
     }
   }
+
+  .giving-button {
+    padding: 2rem 0;
+  }
+
+  .contact-info {
+    padding: 2rem 0 0;
+    font-size: 1.2em;
+
+    a {
+      color: $dark;
+    }
+
+    p.phone-number a {
+      font-weight: bold;
+    }
+
+    p.directions-link a {
+      text-decoration: underline;
+    }
+
+
+  }
+
 }
 
 #bot-bot {

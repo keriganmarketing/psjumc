@@ -9,8 +9,8 @@
 use Includes\Modules\Leads\Leads;
 use Includes\Modules\Helpers\CleanWP;
 use Includes\Modules\Layouts\Layouts;
+use Includes\Modules\Helpers\PageField;
 use Includes\Modules\Slider\BulmaSlider;
-use Includes\Modules\Testimonials\Testimonials;
 use Includes\Modules\Social\SocialSettingsPage;
 
 require('vendor/autoload.php');
@@ -22,11 +22,6 @@ if(is_admin()) {
     $socialLinks->createPage();
 }
 
-$testimonials = new Testimonials();
-$testimonials->createPostType();
-$testimonials->createAdminColumns();
-//$testimonials->createShortcode();
-
 $layouts = new Layouts();
 $layouts->createPostType();
 $layouts->createDefaultFormats();
@@ -35,6 +30,18 @@ $layouts->createLayout('two-column','two column page layout','twocol');
 $slider = new BulmaSlider();
 $slider->createPostType();
 $slider->createAdminColumns();
+
+$pageField = new PageField();
+$pageField->addField(5, 'Contact Info', [
+    'Email address' => 'text',
+    'Phone number'  => 'text',
+    'Physical Address' => 'textarea',
+    'Directions Link' => 'text'
+]);
+$pageField->addField(5, 'Worship Times', [
+    'Photo' => 'image',
+    'HTML'  => 'wysiwyg'
+]);
 
 if ( ! function_exists( 'kmaslim_setup' ) ) :
 

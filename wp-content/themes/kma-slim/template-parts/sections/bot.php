@@ -1,7 +1,8 @@
 <?php
 
-use Includes\Modules\Social\SocialSettingsPage;
+use Includes\Modules\Helpers\PageField;
 use Includes\Modules\Navwalker\BulmaNavwalker;
+use Includes\Modules\Social\SocialSettingsPage;
 
 /**
  * @package KMA
@@ -9,6 +10,8 @@ use Includes\Modules\Navwalker\BulmaNavwalker;
  * @since 1.0
  * @version 1.3
  */
+
+$field = new PageField();
 ?>
         <div class="sticky-footer" >
             <div id="bot">
@@ -27,9 +30,11 @@ use Includes\Modules\Navwalker\BulmaNavwalker;
                         ) ); ?>
                     </div>
                     <div class="giving-button">
-                        <a href="#">
-                            <img src="<?= get_template_directory(); ?>/img/Ways to give.svg" >
-                        </a>
+                        <p class="has-text-centered">
+                            <a href="/ways-to-give/">
+                                <img src="<?= get_template_directory_uri() . '/img/Ways-to-give.svg'; ?>" >
+                            </a>
+                        </p>
                     </div>
                     <div class="social has-text-centered">
                         <?php
@@ -43,7 +48,10 @@ use Includes\Modules\Navwalker\BulmaNavwalker;
                         ?>
                     </div>
                     <div class="contact-info has-text-centered">
-
+                        <p class="email-address"><a href="mailto:<?= $field->getField('contact_info_email_address'); ?>" ><?= $field->getField('contact_info_email_address'); ?></a></p>
+                        <p class="phone-number"><a href="tel:<?= $field->getField('contact_info_phone_number'); ?>" ><?= $field->getField('contact_info_phone_number'); ?></a></p>
+                        <p class="physical-address"><?= nl2br($field->getField('contact_info_physical_address')); ?></p>
+                        <p class="directions-link"><a target="_blank" href="<?= $field->getField('contact_info_directions_link'); ?>" >Get directions</a></p>
                     </div>
                 </div>
             </div>

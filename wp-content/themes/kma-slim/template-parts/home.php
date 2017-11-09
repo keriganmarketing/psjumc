@@ -33,10 +33,14 @@ include(locate_template('template-parts/sections/top.php'));
                     <div class="column is-12 is-4-desktop">
                         <div class="columns is-multiline">
                             <div class="column is-6 is-12-desktop">
-                                <img src="https://bulma.io/images/placeholders/480x320.png" style="display: block; width: 100%;">
+                                <a href="/online-sermons/">
+                                    <img class="photo-button" src="<?= get_template_directory_uri() . '/img/Online sermons@2x.png'; ?>" alt="ways to give to <?= get_bloginfo(); ?>" >
+                                </a>
                             </div>
                             <div class="column is-6 is-12-desktop">
-                                <img src="https://bulma.io/images/placeholders/480x320.png" style="display: block; width: 100%;">
+                                <a href="/salt-life-newsletter/">
+                                    <img class="photo-button" src="<?= get_template_directory_uri() . '/img/Newsletter@2x.png'; ?>" alt="ways to give to <?= get_bloginfo(); ?>" >
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -81,9 +85,9 @@ include(locate_template('template-parts/sections/top.php'));
                     <h2 class="title">Subscribe</h2>
                 </div>
                 <div class="section-content is-narrow">
-                    <p>Sign up to receive our <span class="fancy" >Salt Life</span> Newsletter</p>
+                    <p>Sign up to receive our <span class="fancy" >Salt Life</span> Newsletter:</p>
                     <form class="form">
-                        <input type="text" class="input" placeholder="email">
+                        <input type="text" class="input" placeholder="email address">
                         <button type="submit" class="button is-light">submit</button>
                     </form>
                 </div>

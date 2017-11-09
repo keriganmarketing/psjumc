@@ -67,6 +67,7 @@ var app = new Vue({
 
     created: function () {
         window.addEventListener('scroll', this.handleScroll);
+        this.handleScroll;
     },
 
     destroyed: function () {

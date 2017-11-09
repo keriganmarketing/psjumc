@@ -57,8 +57,8 @@ use Includes\Modules\Navwalker\BulmaNavwalker;
 
                     <div class="navbar-end">
                         <div class="navbar-item">
-                            <a href="/">
-                                <img src="<?= get_template_directory_uri() . '/img/Ways to give.svg'; ?>" alt="ways to give to <?= get_bloginfo(); ?>" >
+                            <a href="/ways-to-give/">
+                                <img src="<?= get_template_directory_uri() . '/img/Ways-to-give.svg'; ?>" alt="ways to give to <?= get_bloginfo(); ?>" >
                             </a>
                         </div>
                     </div>
