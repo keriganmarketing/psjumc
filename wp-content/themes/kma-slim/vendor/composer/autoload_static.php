@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitce01450caa094108bfd947aa69a52fc9
+class ComposerStaticInitc6935d6f73a7033513dae3f54534a584
 {
     public static $files = array (
         'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
@@ -24,7 +24,7 @@ class ComposerStaticInitce01450caa094108bfd947aa69a52fc9
         ),
         'K' => 
         array (
-            'Kerigan\\Facebook\\' => 17,
+            'KeriganSolutions\\FacebookFeed\\' => 30,
         ),
         'I' => 
         array (
@@ -47,7 +47,7 @@ class ComposerStaticInitce01450caa094108bfd947aa69a52fc9
         array (
             0 => __DIR__ . '/..' . '/psr/http-message/src',
         ),
-        'Kerigan\\Facebook\\' => 
+        'KeriganSolutions\\FacebookFeed\\' => 
         array (
             0 => __DIR__ . '/..' . '/kerigansolutions/facebookfeed/src',
         ),
@@ -82,9 +82,9 @@ class ComposerStaticInitce01450caa094108bfd947aa69a52fc9
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitce01450caa094108bfd947aa69a52fc9::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitce01450caa094108bfd947aa69a52fc9::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInitce01450caa094108bfd947aa69a52fc9::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitc6935d6f73a7033513dae3f54534a584::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitc6935d6f73a7033513dae3f54534a584::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInitc6935d6f73a7033513dae3f54534a584::$classMap;
 
         }, null, ClassLoader::class);
     }

@@ -1,96 +1,50 @@
 [
     {
-        "name": "leafo/scssphp",
-        "version": "v0.0.14",
-        "version_normalized": "0.0.14.0",
+        "name": "vimeo/vimeo-api",
+        "version": "1.3.0",
+        "version_normalized": "1.3.0.0",
         "source": {
             "type": "git",
-            "url": "https://github.com/leafo/scssphp.git",
-            "reference": "dfb793daf3ecdce82c40fb6e6c3a84b6ab230364"
+            "url": "https://github.com/vimeo/vimeo.php.git",
+            "reference": "46820e2d777362849137c1eb14f5cdb657c289ea"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/leafo/scssphp/zipball/dfb793daf3ecdce82c40fb6e6c3a84b6ab230364",
-            "reference": "dfb793daf3ecdce82c40fb6e6c3a84b6ab230364",
+            "url": "https://api.github.com/repos/vimeo/vimeo.php/zipball/46820e2d777362849137c1eb14f5cdb657c289ea",
+            "reference": "46820e2d777362849137c1eb14f5cdb657c289ea",
             "shasum": ""
         },
         "require": {
-            "php": ">=5.2.0"
-        },
-        "require-dev": {
-            "php": ">=5.3.0",
-            "phpunit/phpunit": "3.7.*"
-        },
-        "time": "2014-08-05T05:45:15+00:00",
-        "bin": [
-            "pscss"
-        ],
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "classmap": [
-                "scss.inc.php"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT",
-            "GPL-3.0"
-        ],
-        "authors": [
-            {
-                "name": "Leaf Corcoran",
-                "email": "leafot@gmail.com",
-                "homepage": "http://leafo.net"
-            }
-        ],
-        "description": "scssphp is a compiler for SCSS written in PHP.",
-        "homepage": "http://leafo.net/scssphp/"
-    },
-    {
-        "name": "panique/laravel-sass",
-        "version": "1.0",
-        "version_normalized": "1.0.0.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/panique/laravel-sass.git",
-            "reference": "23e7b9ced6f8a646f84c12307d7f6a4df85d3b86"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/panique/laravel-sass/zipball/23e7b9ced6f8a646f84c12307d7f6a4df85d3b86",
-            "reference": "23e7b9ced6f8a646f84c12307d7f6a4df85d3b86",
-            "shasum": ""
-        },
-        "require": {
-            "leafo/scssphp": "v0.0.14",
+            "ext-curl": "*",
+            "ext-json": "*",
             "php": ">=5.3.0"
         },
-        "time": "2014-11-09T01:35:34+00:00",
+        "require-dev": {
+            "phpunit/phpunit": "^4.8"
+        },
+        "time": "2017-10-25T15:11:51+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
-            "files": [
-                "sass-compiler.php"
-            ]
+            "psr-4": {
+                "Vimeo\\": "src/Vimeo"
+            }
         },
         "notification-url": "https://packagist.org/downloads/",
         "license": [
-            "MIT"
+            "Apache-2.0"
         ],
         "authors": [
             {
-                "name": "Panique",
-                "homepage": "http://careers.stackoverflow.com/panique",
-                "role": "Developer"
+                "name": "Vimeo",
+                "homepage": "http://vimeo.com"
             }
         ],
-        "description": "Compiles your SASS .scss files to .css every time you run your app (in development)",
-        "homepage": "https://github.com/panique/laravel-sass",
+        "description": "Official PHP library for the Vimeo API.",
+        "homepage": "https://github.com/vimeo/vimeo.php",
         "keywords": [
-            "css",
-            "sass",
-            "scss"
+            "video",
+            "vimeo"
         ]
     },
     {
@@ -333,79 +287,125 @@
         ]
     },
     {
-        "name": "vimeo/vimeo-api",
-        "version": "1.3.0",
-        "version_normalized": "1.3.0.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/vimeo/vimeo.php.git",
-            "reference": "46820e2d777362849137c1eb14f5cdb657c289ea"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/vimeo/vimeo.php/zipball/46820e2d777362849137c1eb14f5cdb657c289ea",
-            "reference": "46820e2d777362849137c1eb14f5cdb657c289ea",
-            "shasum": ""
-        },
-        "require": {
-            "ext-curl": "*",
-            "ext-json": "*",
-            "php": ">=5.3.0"
-        },
-        "require-dev": {
-            "phpunit/phpunit": "^4.8"
-        },
-        "time": "2017-10-25T15:11:51+00:00",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Vimeo\\": "src/Vimeo"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "Apache-2.0"
-        ],
-        "authors": [
-            {
-                "name": "Vimeo",
-                "homepage": "http://vimeo.com"
-            }
-        ],
-        "description": "Official PHP library for the Vimeo API.",
-        "homepage": "https://github.com/vimeo/vimeo.php",
-        "keywords": [
-            "video",
-            "vimeo"
-        ]
-    },
-    {
         "name": "kerigansolutions/facebookfeed",
-        "version": "0.1",
-        "version_normalized": "0.1.0.0",
+        "version": "0.4",
+        "version_normalized": "0.4.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/kerigansolutions/facebookfeed.git",
-            "reference": "01fbe973f37fa16ac37bfea791fa3a6a79eb4b6d"
+            "reference": "6a1967794d176fa1c24a06d516d60ded6d8114ff"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/kerigansolutions/facebookfeed/zipball/01fbe973f37fa16ac37bfea791fa3a6a79eb4b6d",
-            "reference": "01fbe973f37fa16ac37bfea791fa3a6a79eb4b6d",
+            "url": "https://api.github.com/repos/kerigansolutions/facebookfeed/zipball/6a1967794d176fa1c24a06d516d60ded6d8114ff",
+            "reference": "6a1967794d176fa1c24a06d516d60ded6d8114ff",
             "shasum": ""
         },
         "require": {
             "guzzlehttp/guzzle": "^6.3"
         },
-        "time": "2017-11-08T20:14:48+00:00",
+        "time": "2017-11-08T21:52:26+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
             "psr-4": {
-                "Kerigan\\Facebook\\": "src"
+                "KeriganSolutions\\FacebookFeed\\": "src"
             }
         },
         "notification-url": "https://packagist.org/downloads/"
+    },
+    {
+        "name": "leafo/scssphp",
+        "version": "v0.0.14",
+        "version_normalized": "0.0.14.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/leafo/scssphp.git",
+            "reference": "dfb793daf3ecdce82c40fb6e6c3a84b6ab230364"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/leafo/scssphp/zipball/dfb793daf3ecdce82c40fb6e6c3a84b6ab230364",
+            "reference": "dfb793daf3ecdce82c40fb6e6c3a84b6ab230364",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.2.0"
+        },
+        "require-dev": {
+            "php": ">=5.3.0",
+            "phpunit/phpunit": "3.7.*"
+        },
+        "time": "2014-08-05T05:45:15+00:00",
+        "bin": [
+            "pscss"
+        ],
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "classmap": [
+                "scss.inc.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT",
+            "GPL-3.0"
+        ],
+        "authors": [
+            {
+                "name": "Leaf Corcoran",
+                "email": "leafot@gmail.com",
+                "homepage": "http://leafo.net"
+            }
+        ],
+        "description": "scssphp is a compiler for SCSS written in PHP.",
+        "homepage": "http://leafo.net/scssphp/"
+    },
+    {
+        "name": "panique/laravel-sass",
+        "version": "1.0",
+        "version_normalized": "1.0.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/panique/laravel-sass.git",
+            "reference": "23e7b9ced6f8a646f84c12307d7f6a4df85d3b86"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/panique/laravel-sass/zipball/23e7b9ced6f8a646f84c12307d7f6a4df85d3b86",
+            "reference": "23e7b9ced6f8a646f84c12307d7f6a4df85d3b86",
+            "shasum": ""
+        },
+        "require": {
+            "leafo/scssphp": "v0.0.14",
+            "php": ">=5.3.0"
+        },
+        "time": "2014-11-09T01:35:34+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "files": [
+                "sass-compiler.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Panique",
+                "homepage": "http://careers.stackoverflow.com/panique",
+                "role": "Developer"
+            }
+        ],
+        "description": "Compiles your SASS .scss files to .css every time you run your app (in development)",
+        "homepage": "https://github.com/panique/laravel-sass",
+        "keywords": [
+            "css",
+            "sass",
+            "scss"
+        ]
     }
 ]

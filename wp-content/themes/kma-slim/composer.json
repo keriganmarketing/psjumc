@@ -10,6 +10,6 @@
   "require": {
     "guzzlehttp/guzzle": "^6.3",
     "vimeo/vimeo-api": "^1.3",
-    "kerigansolutions/facebookfeed": "^0.1.0"
+    "kerigansolutions/facebookfeed": "^0.4.0"
   }
 }

@@ -8,7 +8,7 @@ $baseDir = dirname($vendorDir);
 return array(
     'Vimeo\\' => array($vendorDir . '/vimeo/vimeo-api/src/Vimeo'),
     'Psr\\Http\\Message\\' => array($vendorDir . '/psr/http-message/src'),
-    'Kerigan\\Facebook\\' => array($vendorDir . '/kerigansolutions/facebookfeed/src'),
+    'KeriganSolutions\\FacebookFeed\\' => array($vendorDir . '/kerigansolutions/facebookfeed/src'),
     'Includes\\Modules\\' => array($baseDir . '/inc/modules'),
     'GuzzleHttp\\Psr7\\' => array($vendorDir . '/guzzlehttp/psr7/src'),
     'GuzzleHttp\\Promise\\' => array($vendorDir . '/guzzlehttp/promises/src'),
