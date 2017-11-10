@@ -261,9 +261,13 @@ body {
   }
 
   .section.top-section {
+    background-image: url('/wp-content/themes/kma-slim/img/water photo.png');
+    background-position: center top;
+    background-size: cover;
     padding-top: 1rem;
     @media screen and (min-width: $desktop){
       padding-top: 165px;
+      padding-bottom: 0;
     }
   }
 
@@ -271,6 +275,9 @@ body {
     background-image: url('/wp-content/themes/kma-slim/img/water photo.png');
     background-position: center top;
     background-size: cover;
+    @media screen and (min-width: $desktop){
+      padding-bottom: 6rem;
+    }
 
     .slider-container {
       height: 330px;
