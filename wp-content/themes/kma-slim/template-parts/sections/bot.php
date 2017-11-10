@@ -48,10 +48,10 @@ $field = new PageField();
                         ?>
                     </div>
                     <div class="contact-info has-text-centered">
-                        <p class="email-address"><a href="mailto:<?= $field->getField('contact_info_email_address'); ?>" ><?= $field->getField('contact_info_email_address'); ?></a></p>
-                        <p class="phone-number"><a href="tel:<?= $field->getField('contact_info_phone_number'); ?>" ><?= $field->getField('contact_info_phone_number'); ?></a></p>
-                        <p class="physical-address"><?= nl2br($field->getField('contact_info_physical_address')); ?></p>
-                        <p class="directions-link"><a target="_blank" href="<?= $field->getField('contact_info_directions_link'); ?>" >Get directions</a></p>
+                        <p class="email-address"><a href="mailto:<?= $field->getField('contact_info_email_address', 5); ?>" ><?= $field->getField('contact_info_email_address', 5); ?></a></p>
+                        <p class="phone-number"><a href="tel:<?= $field->getField('contact_info_phone_number', 5); ?>" ><?= $field->getField('contact_info_phone_number', 5); ?></a></p>
+                        <p class="physical-address"><?= nl2br($field->getField('contact_info_physical_address', 5)); ?></p>
+                        <p class="directions-link"><a target="_blank" href="<?= $field->getField('contact_info_directions_link', 5); ?>" >Get directions</a></p>
                     </div>
                 </div>
             </div>
@@ -66,5 +66,6 @@ $field = new PageField();
             </div>
         </div><!-- .sticky-footer -->
     </div><!-- .site-wrapper -->
+    <video-modal></video-modal>
 </div><!-- .app -->
 <?php wp_footer(); ?>
