@@ -32,7 +32,7 @@ $field = new PageField();
                     <div class="giving-button">
                         <p class="has-text-centered">
                             <a href="/ways-to-give/">
-                                <img src="<?= get_template_directory_uri() . '/img/Ways-to-give.svg'; ?>" >
+                                <img src="<?= get_template_directory_uri() . '/img/ways-to-give-bot.svg'; ?>" >
                             </a>
                         </p>
                     </div>
