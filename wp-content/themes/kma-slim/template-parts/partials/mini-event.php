@@ -4,11 +4,16 @@ date_default_timezone_set('America/Chicago');
 $content    = $event->message;
 $startTime  = date('g:i a', strtotime($event->start_time));
 $endTime    = date('g:i a', strtotime($event->end_time));
-$startDate  = date('M j', strtotime($event->start_time));
-$endDate    = date('M j', strtotime($event->end_time));
+$endYear    = date('Y', strtotime($event->end_time));
 $startMonth = date('M', strtotime($event->start_time));
+$endMonth   = date('M', strtotime($event->end_time));
 $startDay   = date('d', strtotime($event->start_time));
-$eventDate  = ($startDate != $endDate ? $startDate . ' - ' . $endDate : $startDate);
+$endDay     = date('j', strtotime($event->end_time));
+
+$startDate  = date('M j', strtotime($event->start_time));
+$endDate    = ($startMonth == $endMonth ? $endDay : $endMonth . ' ' . $endDay);
+
+$eventDate  = ($startDate != $endDate ? $startDate . ' - ' . $endDate . ', ' . $endYear : $startDate . ', ' . $endYear);
 $eventTime  = ($startTime != $endTime ? $startTime . ' - ' . $endTime : $startTime);
 ?>
 <div class="card mini-event">
@@ -28,7 +33,7 @@ $eventTime  = ($startTime != $endTime ? $startTime . ' - ' . $endTime : $startTi
                     <p class="day"><?= $startDay; ?></p>
                 </td>
                 <td>
-                    <p class="time"><strong><?= $eventDate; ?>, <?= $eventTime; ?></strong></p>
+                    <p class="time"><strong><?= $eventDate; ?> | <?= $eventTime; ?></strong></p>
                     <p class="location"><?= $event->place->name; ?></p>
                 </td>
             </tr>

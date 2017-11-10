@@ -29,17 +29,12 @@ include(locate_template('template-parts/sections/top.php'));
         <div class="section vimeo-archive">
             <div class="container">
                 <div class="columns is-multiline">
-                <?php
-
-                echo '<pre>',print_r($results),'</pre>';
-
-                foreach($results->data as $event){ ?>
+                <?php foreach($results->data as $event){ ?>
                     <div class="column is-6">
                         <?php include(locate_template('template-parts/partials/mini-event.php')); ?>
                     </div>
                 <?php } ?>
                 </div>
-                <?php //include(locate_template('template-parts/partials/pagination.php')); ?>
             </div>
         </div>
     </article>
