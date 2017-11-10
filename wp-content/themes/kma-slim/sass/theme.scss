@@ -446,6 +446,47 @@ body {
     }
   }
 
+  .mini-event {
+    height:100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .card-content {
+      line-height: 1.3em;
+      text-align: justify;
+
+      .event-table {
+        margin:0 0 1rem;
+
+        td {
+          padding:.5rem 1rem;
+          vertical-align: middle;
+        }
+        td.date-block {
+          border:1px solid #31081F;
+          text-align: center;
+          text-transform: uppercase;
+          height: 75px;
+          width: 75px;
+
+          .month {
+            font-size:.9em;
+          }
+          .day {
+            font-size: 1.4em;
+          }
+        }
+      }
+    }
+
+    .title {
+      font-family: $header-font-family;
+      color: #31081F;
+      font-weight:300;
+    }
+  }
+
 }
 
 

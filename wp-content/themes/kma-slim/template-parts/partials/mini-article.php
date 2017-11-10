@@ -1,7 +1,6 @@
 <?php
-
-
 $headline = ($post->post_name == 'home' ? 'News' : '');
+$dateposted = ($post->post_name == 'home' ? '' : human_time_diff(time(),strtotime($result->created_time)) . ' ago' );
 $content  = $result->message;
 $photoUrl = $feed->photo($result);
 ?>
@@ -32,6 +31,7 @@ $photoUrl = $feed->photo($result);
     </div>
     <div class="card-content">
         <?= ($headline!='' ? '<h3 class="title">'.$headline.'</h3>' : null); ?>
-        <?= wp_trim_words( $content, $num_words = 22, ' <a href="#">Read more</a>...' ); ?>
+        <?= ($dateposted!='' ? '<p class="time-posted">'.$dateposted.'</p>' : null); ?>
+        <?= wp_trim_words( $content, $num_words = 22, '...' ); ?> <a href="<?= $result->link; ?>">Read&nbsp;on&nbsp;Facebook</a>
     </div>
 </div>

@@ -1,6 +1,6 @@
 <?php
 
-use Includes\Modules\Vimeo\KmaVimeo;
+use KeriganSolutions\FacebookFeed\FacebookEvents;
 
 /**
  * @package KMA
@@ -11,13 +11,8 @@ use Includes\Modules\Vimeo\KmaVimeo;
 $headline = ($post->page_information_headline != '' ? $post->page_information_headline : $post->post_title);
 $subhead = ($post->page_information_subhead != '' ? $post->page_information_subhead : '');
 
-$page    = $_GET['pg'] ?? 1;
-$perPage = $_GET['perPage'] ?? 6;
-
-$vimeo    = new KmaVimeo();
-$videos   = $vimeo->videos($page, $perPage);
-
-$numPages = ceil($videos['total'] / $perPage) + 1;
+$feed    = new FacebookEvents();
+$results = $feed->fetch(9);
 
 include(locate_template('template-parts/sections/top.php'));
 ?>
@@ -34,15 +29,17 @@ include(locate_template('template-parts/sections/top.php'));
         <div class="section vimeo-archive">
             <div class="container">
                 <div class="columns is-multiline">
-                <?php foreach($videos['data'] as $video){
-                    $photo = $video['pictures']['sizes'][3]
-                    ?>
+                <?php
+
+                echo '<pre>',print_r($results),'</pre>';
+
+                foreach($results->data as $event){ ?>
                     <div class="column is-6">
-                        <?php include(locate_template('template-parts/partials/mini-sermon.php')); ?>
+                        <?php include(locate_template('template-parts/partials/mini-event.php')); ?>
                     </div>
                 <?php } ?>
                 </div>
-                <?php include(locate_template('template-parts/partials/pagination.php')); ?>
+                <?php //include(locate_template('template-parts/partials/pagination.php')); ?>
             </div>
         </div>
     </article>
