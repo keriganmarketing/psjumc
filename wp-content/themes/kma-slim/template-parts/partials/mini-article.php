@@ -3,7 +3,7 @@
 
 $headline = ($post->post_name == 'home' ? 'News' : '');
 $content  = $result->message;
-$photoUrl = $feed->photo($result);
+$photoUrl = $result->full_picture;
 ?>
 <div class="card mini-article">
     <div class="card-image">
