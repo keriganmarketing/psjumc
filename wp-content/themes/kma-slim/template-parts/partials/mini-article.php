@@ -2,7 +2,7 @@
 $headline = ($post->post_name == 'home' ? 'News' : '');
 $dateposted = ($post->post_name == 'home' ? '' : human_time_diff(time(),strtotime($result->created_time)) . ' ago' );
 $content  = $result->message;
-$photoUrl = $feed->photo($result);
+$photoUrl = $result->full_picture;
 ?>
 <div class="card mini-article">
     <div class="card-image">

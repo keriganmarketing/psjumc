@@ -77,7 +77,7 @@ include(locate_template('template-parts/sections/top.php'));
                         $feed    = new FacebookFeed();
                         $results = $feed->fetch(1);
 
-                        foreach ($results->data as $result) {
+                        foreach ($results as $result) {
                             include(locate_template('template-parts/partials/mini-article.php'));
                         }
                         ?>
