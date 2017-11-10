@@ -1,4 +1,7 @@
 <?php
+
+use KeriganSolutions\FacebookFeed\FacebookFeed;
+
 /**
  * @package KMA
  * @subpackage kmaslim
@@ -9,6 +12,8 @@ $headline = ($post->page_information_headline != '' ? $post->page_information_he
 $subhead = ($post->page_information_subhead != '' ? $post->page_information_subhead : get_the_archive_description());
 
 include(locate_template('template-parts/sections/top.php'));
+$feed    = new FacebookFeed();
+$results = $feed->fetch(9);
 ?>
 <div id="mid" >
     <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -23,7 +28,7 @@ include(locate_template('template-parts/sections/top.php'));
         <section id="content" class="section news">
             <div class="container">
                 <div class="columns is-multiline">
-                <?php for($i=1;$i<=9;$i++){ ?>
+                <?php foreach ($results->data as $result) { ?>
                     <div class="column is-4">
                         <?php include(locate_template('template-parts/partials/mini-article.php')); ?>
                     </div>

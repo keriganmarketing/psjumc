@@ -1,6 +1,7 @@
 <?php
 
 use Includes\Modules\Slider\BulmaSlider;
+use KeriganSolutions\FacebookFeed\FacebookFeed;
 
 /**
  * @package KMA
@@ -73,8 +74,13 @@ include(locate_template('template-parts/sections/top.php'));
                     <div class="column is-4 level-item">
                         <?php
                         //do Facebook thingy for 1 article here.
+                        $feed    = new FacebookFeed();
+                        $results = $feed->fetch(1);
+
+                        foreach ($results->data as $result) {
+                            include(locate_template('template-parts/partials/mini-article.php'));
+                        }
                         ?>
-                        <?php include(locate_template('template-parts/partials/mini-article.php')); ?>
                     </div>
                 </div>
             </div>
