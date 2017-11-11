@@ -407,5 +407,43 @@
             }
         },
         "notification-url": "https://packagist.org/downloads/"
+    },
+    {
+        "name": "kerigansolutions/facebook-photo-gallery",
+        "version": "0.3",
+        "version_normalized": "0.3.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/kerigansolutions/facebook-photo-gallery.git",
+            "reference": "d2417b99a98b9da0b328cece6bf7823e3888b9d2"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/kerigansolutions/facebook-photo-gallery/zipball/d2417b99a98b9da0b328cece6bf7823e3888b9d2",
+            "reference": "d2417b99a98b9da0b328cece6bf7823e3888b9d2",
+            "shasum": ""
+        },
+        "require": {
+            "guzzlehttp/guzzle": "^6.3"
+        },
+        "time": "2017-11-11T20:58:34+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "KeriganSolutions\\FacebookPhotoGallery\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Daron Adkins",
+                "email": "daron.adkins@gmail.com"
+            }
+        ],
+        "description": "Bring Facebook albums and photos into WordPress"
     }
 ]

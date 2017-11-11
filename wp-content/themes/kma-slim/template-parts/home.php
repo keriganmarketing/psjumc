@@ -2,6 +2,7 @@
 
 use Includes\Modules\Slider\BulmaSlider;
 use KeriganSolutions\FacebookFeed\FacebookFeed;
+use KeriganSolutions\FacebookPhotoGallery\FacebookPhotoGallery;
 
 /**
  * @package KMA
@@ -10,7 +11,9 @@ use KeriganSolutions\FacebookFeed\FacebookFeed;
  * @version 1.2
  */
 $headline = ($post->page_information_headline != '' ? $post->page_information_headline : $post->post_title);
-$subhead = ($post->page_information_subhead != '' ? $post->page_information_subhead : '');
+$subhead  = ($post->page_information_subhead != '' ? $post->page_information_subhead : '');
+$gallery  = new FacebookPhotoGallery();
+$albums   = $gallery->albums();
 
 include(locate_template('template-parts/sections/top.php'));
 ?>

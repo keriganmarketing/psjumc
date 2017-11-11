@@ -24,6 +24,7 @@ class ComposerStaticInitc6935d6f73a7033513dae3f54534a584
         ),
         'K' => 
         array (
+            'KeriganSolutions\\FacebookPhotoGallery\\' => 38,
             'KeriganSolutions\\FacebookFeed\\' => 30,
         ),
         'I' => 
@@ -46,6 +47,10 @@ class ComposerStaticInitc6935d6f73a7033513dae3f54534a584
         'Psr\\Http\\Message\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/http-message/src',
+        ),
+        'KeriganSolutions\\FacebookPhotoGallery\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/kerigansolutions/facebook-photo-gallery/src',
         ),
         'KeriganSolutions\\FacebookFeed\\' => 
         array (
