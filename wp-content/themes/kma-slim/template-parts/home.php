@@ -13,7 +13,7 @@ use KeriganSolutions\FacebookPhotoGallery\FacebookPhotoGallery;
 $headline = ($post->page_information_headline != '' ? $post->page_information_headline : $post->post_title);
 $subhead  = ($post->page_information_subhead != '' ? $post->page_information_subhead : '');
 $gallery  = new FacebookPhotoGallery();
-$albums   = $gallery->albums();
+$albums   = $gallery->albums(9);
 
 include(locate_template('template-parts/sections/top.php'));
 ?>
@@ -76,7 +76,6 @@ include(locate_template('template-parts/sections/top.php'));
                     </div>
                     <div class="column is-4 level-item">
                         <?php
-                        //do Facebook thingy for 1 article here.
                         $feed    = new FacebookFeed();
                         $results = $feed->fetch(1);
 
