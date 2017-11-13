@@ -38,12 +38,6 @@ use Includes\Modules\Navwalker\BulmaNavwalker;
                         <a href="/">
                             <img src="<?= get_template_directory_uri() . '/img/psjumc-logo.svg'; ?>" alt="<?= get_bloginfo(); ?>" class="logo" >
                         </a>
-
-                        <div class="navbar-burger burger" id="MobileNavBurger" data-target="MobileNavMenu" @click="toggleMenu">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
                     </div>
 
                     <?php wp_nav_menu([
@@ -64,7 +58,16 @@ use Includes\Modules\Navwalker\BulmaNavwalker;
                                 <img src="<?= get_template_directory_uri() . '/img/ways-to-give-top.svg'; ?>" alt="ways to give to <?= get_bloginfo(); ?>" >
                             </a>
                         </div>
+                        <div class="burger" id="MobileNavBurger" data-target="MobileNavMenu" @click="toggleMenu">
+                            <span class="burger-label">MENU</span>
+                                <span class="navbar-burger">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </span>
+                        </div>
                     </div>
+
 
                 </nav>
 

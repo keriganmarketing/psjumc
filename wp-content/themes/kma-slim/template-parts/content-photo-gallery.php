@@ -24,15 +24,16 @@ include(locate_template('template-parts/sections/top.php'));
 <div id="mid" >
     <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
         <div class="section top-section support-header" >
-            <div class="hero-body">
-                <div class="container">
+        </div>
+        <div id="content" class="section support vimeo-archive">
+            <div class="container">
+
+                <div class="entry-content">
                     <h1 class="title"><?php echo $headline; ?></h1>
                     <?php echo ($subhead!='' ? '<p class="subtitle">'.$subhead.'</p>' : null); ?>
+                    <?php the_content(); ?>
                 </div>
-            </div>
-        </div>
-        <div class="section vimeo-archive">
-            <div class="container">
+
                 <div class="columns is-multiline">
                     <?php
                     foreach ($albums->data as $album) { ?>

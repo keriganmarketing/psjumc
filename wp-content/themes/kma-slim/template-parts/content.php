@@ -13,8 +13,11 @@ include(locate_template('template-parts/sections/top.php'));
 <div id="mid" >
     <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
         <div class="section top-section support-header" >
-            <div class="hero-body">
-                <div class="container">
+        </div>
+        <section id="content" class="section support">
+            <div class="container">
+                <div class="entry-content">
+
                     <h1 class="title"><?php echo $headline; ?></h1>
                     <?php echo ($subhead!='' ? '<p class="subtitle">'.$subhead.'</p>' : null); ?>
                     <?php if ( 'post' === get_post_type() ) : ?>
@@ -22,12 +25,7 @@ include(locate_template('template-parts/sections/top.php'));
                             <?php //kmaslim_posted_on(); ?>
                         </div>
                     <?php endif; ?>
-                </div>
-            </div>
-        </div>
-        <section id="content" class="content section">
-            <div class="container">
-                <div class="entry-content">
+
                     <?php
                     the_content( sprintf(
                     /* translators: %s: Name of current post. */
