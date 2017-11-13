@@ -152,17 +152,20 @@ class Layouts
     public function addSidebar( $title )
     {
 
-        $this->sidebarTitle = $title;
+        $this->sidebarTitle[] = $title;
 
         add_action('init', function () {
-            wp_insert_term(
-                $this->sidebarTitle,
-                'sidebar',
-                array(
-                    'description' => '',
-                    'slug'        => $this->uglify($this->sidebarTitle)
-                )
-            );
+
+            foreach($this->sidebarTitle as $title) {
+                wp_insert_term(
+                    $title,
+                    'sidebar',
+                    array(
+                        'description' => '',
+                        'slug'        => $this->uglify($title)
+                    )
+                );
+            }
         });
 
     }

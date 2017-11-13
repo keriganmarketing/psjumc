@@ -1,19 +1,17 @@
 <?php
-    $disabledPrevious = isset($albums->paging->previous) ? '' : ' disabled';
-    $disabledNext = isset($albums->paging->next) ? '' : ' disabled';
+    $disabledPrevious = isset($albums->paging->previous) ? false : true;
+    $disabledNext = isset($albums->paging->next) ? false : true;
 ?>
 <nav class="pagination has-text-centered" role="navigation" aria-label="pagination">
     <a
         class="pagination-previous"
-        href="/photo-gallery/?before=<?= $albums->paging->cursors->before ?>"
-        <?= $disabledPrevious ?>
+        <?= ($disabledPrevious == false ? 'href="/photo-gallery/?before=' . $albums->paging->cursors->before . '"' : ' disabled' ) ?>
     >
         Previous
     </a>
     <a
         class="pagination-next"
-        href="/photo-gallery/?after=<?= $albums->paging->cursors->after ?>"
-        <?= $disabledNext ?>
+        <?= ($disabledNext == false ? 'href="/photo-gallery/?after=' . $albums->paging->cursors->after . '"' : ' disabled' ) ?>
     >
         Next page
     </a>
