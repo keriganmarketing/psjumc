@@ -11,13 +11,13 @@ use KeriganSolutions\FacebookPhotoGallery\FacebookPhotoGallery;
 $headline = ($post->page_information_headline != '' ? $post->page_information_headline : $post->post_title);
 $subhead = ($post->page_information_subhead != '' ? $post->page_information_subhead : '');
 
-$page    = $_GET['pg'] ?? 1;
-$perPage = $_GET['perPage'] ?? 6;
+// Cursor before the returned data set
+$before  = $_GET['before'] ?? null;
+// Cursor after the returned data set
+$after   = $_GET['after'] ?? null;
 
 $gallery = new FacebookPhotoGallery();
-$albums  = $gallery->albums();
-
-$numPages = ceil($videos['total'] / $perPage) + 1;
+$albums   = $gallery->albums(9, $before, $after);
 
 include(locate_template('template-parts/sections/top.php'));
 ?>
@@ -36,7 +36,7 @@ include(locate_template('template-parts/sections/top.php'));
 
                 <div class="columns is-multiline">
                     <?php
-                    foreach ($albums as $album) { ?>
+                    foreach ($albums->data as $album) { ?>
                         <div class="column is-4">
                             <a href="<?= $album->link ?>">
                                 <img src="<?= $album->cover_photo->images[0]->source ?>" alt="" class="img">
@@ -47,7 +47,7 @@ include(locate_template('template-parts/sections/top.php'));
                     }
                     ?>
                 </div>
-                <?php include(locate_template('template-parts/partials/pagination.php')); ?>
+                <?php include(locate_template('template-parts/partials/facebook-pagination.php')); ?>
             </div>
         </div>
     </article>

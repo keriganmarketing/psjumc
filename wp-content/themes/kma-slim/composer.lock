@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "53960c79a3c2744c77334fe6771a3203",
+    "content-hash": "8265e0797d91bb6971a3be9dc6f1eaa1",
     "packages": [
         {
             "name": "guzzlehttp/guzzle",
@@ -189,16 +189,16 @@
         },
         {
             "name": "kerigansolutions/facebook-photo-gallery",
-            "version": "0.3",
+            "version": "0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kerigansolutions/facebook-photo-gallery.git",
-                "reference": "d2417b99a98b9da0b328cece6bf7823e3888b9d2"
+                "reference": "975311f1184a1ca196610420f2e86db091051e66"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kerigansolutions/facebook-photo-gallery/zipball/d2417b99a98b9da0b328cece6bf7823e3888b9d2",
-                "reference": "d2417b99a98b9da0b328cece6bf7823e3888b9d2",
+                "url": "https://api.github.com/repos/kerigansolutions/facebook-photo-gallery/zipball/975311f1184a1ca196610420f2e86db091051e66",
+                "reference": "975311f1184a1ca196610420f2e86db091051e66",
                 "shasum": ""
             },
             "require": {
@@ -221,7 +221,7 @@
                 }
             ],
             "description": "Bring Facebook albums and photos into WordPress",
-            "time": "2017-11-11T20:58:34+00:00"
+            "time": "2017-11-13T22:47:40+00:00"
         },
         {
             "name": "kerigansolutions/facebookfeed",
