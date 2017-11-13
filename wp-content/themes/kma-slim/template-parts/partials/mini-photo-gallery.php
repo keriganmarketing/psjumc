@@ -1,3 +1,9 @@
+<?php
+use KeriganSolutions\FacebookPhotoGallery\FacebookPhotoGallery;
+
+$gallery  = new FacebookPhotoGallery();
+$albums   = $gallery->albums();
+?>
 <div class="card mini-photo-gallery">
     <div class="card-content">
         <h3 class="title">Photo Gallery</h3>

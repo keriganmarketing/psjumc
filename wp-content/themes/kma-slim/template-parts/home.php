@@ -1,8 +1,6 @@
 <?php
 
 use Includes\Modules\Slider\BulmaSlider;
-use KeriganSolutions\FacebookFeed\FacebookFeed;
-use KeriganSolutions\FacebookPhotoGallery\FacebookPhotoGallery;
 
 /**
  * @package KMA
@@ -12,8 +10,6 @@ use KeriganSolutions\FacebookPhotoGallery\FacebookPhotoGallery;
  */
 $headline = ($post->page_information_headline != '' ? $post->page_information_headline : $post->post_title);
 $subhead  = ($post->page_information_subhead != '' ? $post->page_information_subhead : '');
-$gallery  = new FacebookPhotoGallery();
-$albums   = $gallery->albums();
 
 include(locate_template('template-parts/sections/top.php'));
 ?>
@@ -64,42 +60,12 @@ include(locate_template('template-parts/sections/top.php'));
         </div>
         <div class="section connect">
             <div class="container">
-                <div class="section-title">
-                    <h2 class="title">Connect</h2>
-                </div>
-                <div class="columns is-multiline">
-                    <div class="column is-4 level-item">
-                        <?php include(locate_template('template-parts/partials/mini-worship-times.php')); ?>
-                    </div>
-                    <div class="column is-4 level-item">
-                        <?php include(locate_template('template-parts/partials/mini-photo-gallery.php')); ?>
-                    </div>
-                    <div class="column is-4 level-item">
-                        <?php
-                        //do Facebook thingy for 1 article here.
-                        $feed    = new FacebookFeed();
-                        $results = $feed->fetch(1);
-
-                        foreach ($results as $result) {
-                            include(locate_template('template-parts/partials/mini-article.php'));
-                        }
-                        ?>
-                    </div>
-                </div>
+                <?php include(locate_template('template-parts/sections/connect.php')); ?>
             </div>
         </div>
         <div class="section subscribe">
             <div class="container">
-                <div class="section-title">
-                    <h2 class="title">Subscribe</h2>
-                </div>
-                <div class="section-content is-narrow">
-                    <p>Sign up to receive our <span class="fancy" >Salt Life</span> Newsletter:</p>
-                    <form class="form">
-                        <input type="text" class="input" placeholder="email address">
-                        <button type="submit" class="button is-light">submit</button>
-                    </form>
-                </div>
+                <?php include(locate_template('template-parts/sections/subscribe.php')); ?>
             </div>
         </div>
     </article>

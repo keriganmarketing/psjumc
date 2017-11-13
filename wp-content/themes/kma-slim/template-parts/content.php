@@ -42,5 +42,10 @@ include(locate_template('template-parts/sections/top.php'));
             </div>
         </section>
     </article>
+    <div class="section connect">
+        <div class="container">
+            <?php include(locate_template('template-parts/sections/connect.php')); ?>
+        </div>
+    </div>
 </div>
 <?php include(locate_template('template-parts/sections/bot.php')); ?>

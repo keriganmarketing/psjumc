@@ -23,9 +23,14 @@ if(is_admin()) {
 }
 
 $layouts = new Layouts();
-$layouts->createPostType();
-$layouts->createDefaultFormats();
-$layouts->createLayout('two-column','two column page layout','twocol');
+$layouts->addPageHeadlines();
+$layouts->createSidebarSelector();
+$layouts->addSidebar('Online Sermons');
+$layouts->addSidebar('Salt Life eNewsletter');
+
+//$layouts->createLayouts();
+//$layouts->addLayout('two-column','two column page layout','twocol');
+
 
 $slider = new BulmaSlider();
 $slider->createPostType();

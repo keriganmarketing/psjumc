@@ -15,6 +15,9 @@ if (! defined('ABSPATH')) {
 
 class Layouts
 {
+
+    protected $sidebarTitle;
+
     /**
      * Layouts constructor.
      */
@@ -23,11 +26,7 @@ class Layouts
 
     }
 
-    /**
-     * @return null
-     */
-    public function createPostType()
-    {
+    public function addPageHeadlines(){
         $page = new CustomPostType('Page');
         $page->addMetaBox(
             'Page Information',
@@ -36,6 +35,19 @@ class Layouts
                 'Subhead'  => 'text'
             )
         );
+    }
+
+    public function createLayouts(){
+        $this->createTaxonomy();
+        $this->createDefaultFormats();
+    }
+
+    /**
+     * @return null
+     */
+    protected function createTaxonomy()
+    {
+        $page = new CustomPostType('Page');
 
         $page->addTaxonomy('layout', array(
             'hierarchical'      => true,
@@ -61,7 +73,7 @@ class Layouts
     /**
      * @return null
      */
-    public function createDefaultFormats()
+    protected function createDefaultFormats()
     {
 
         add_action('init', function () {
@@ -82,8 +94,9 @@ class Layouts
      * @param slug
      * @param description
      */
-    public function createLayout($term = '', $description = '', $slug = '')
+    public function addLayout($term = '', $description = '', $slug = '')
     {
+
         wp_insert_term(
             $term,
             'layout',
@@ -104,6 +117,53 @@ class Layouts
                 'HTML' => 'wysiwyg'
             )
         );
+
+    }
+
+    /**
+     * @return null
+     */
+    public function createSidebarSelector()
+    {
+        $page = new CustomPostType('Page');
+
+        $page->addTaxonomy('sidebar', array(
+            'hierarchical'      => true,
+            'show_ui'           => true,
+            'show_admin_column' => true,
+            'query_var'         => true,
+            'capabilities'      => array(
+                'manage_terms' => '',
+                'edit_terms'   => '',
+                'delete_terms' => '',
+                'assign_terms' => 'edit_posts'
+            ),
+            'public'            => true,
+            'show_in_nav_menus' => false,
+            'show_tagcloud'     => false,
+        ));
+
+    }
+
+    protected function uglify( $name ){
+        return str_replace(' ', '_', strtolower($name) );
+    }
+
+    public function addSidebar( $title )
+    {
+
+        $this->sidebarTitle = $title;
+
+        add_action('init', function () {
+            wp_insert_term(
+                $this->sidebarTitle,
+                'sidebar',
+                array(
+                    'description' => '',
+                    'slug'        => $this->uglify($this->sidebarTitle)
+                )
+            );
+        });
 
     }
 
