@@ -20,7 +20,7 @@ $eventTime  = ($startTime != $endTime ? $startTime . ' - ' . $endTime : $startTi
     <div class="card-image">
         <figure class="image is-2by1">
             <a href="https://www.facebook.com/events/<?= $event->id; ?>" target="_blank">
-                <img src="https://bulma.io/images/placeholders/640x320.png" alt="<?php echo $event->caption; ?>" >
+                <img src="<?= $event->cover->source ?>" alt="<?php echo $event->caption; ?>" >
             </a>
         </figure>
     </div>
