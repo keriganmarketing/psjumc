@@ -1,6 +1,6 @@
 <?php
 
-use Includes\Modules\Vimeo\KmaVimeo;
+use KeriganSolutions\FacebookPhotoGallery\FacebookPhotoGallery;
 
 /**
  * @package KMA
@@ -14,8 +14,8 @@ $subhead = ($post->page_information_subhead != '' ? $post->page_information_subh
 $page    = $_GET['pg'] ?? 1;
 $perPage = $_GET['perPage'] ?? 6;
 
-$vimeo    = new KmaVimeo();
-$videos   = $vimeo->videos($page, $perPage);
+$gallery = new FacebookPhotoGallery();
+$albums  = $gallery->albums();
 
 $numPages = ceil($videos['total'] / $perPage) + 1;
 
@@ -34,13 +34,17 @@ include(locate_template('template-parts/sections/top.php'));
         <div class="section vimeo-archive">
             <div class="container">
                 <div class="columns is-multiline">
-                <?php foreach($videos['data'] as $video){
-                    $photo = $video['pictures']['sizes'][3]
+                    <?php
+                    foreach ($albums as $album) { ?>
+                        <div class="column is-4">
+                            <a href="<?= $album->link ?>">
+                                <img src="<?= $album->cover_photo->images[0]->source ?>" alt="" class="img">
+                                <p class="has-text-centered"><?= $album->name ?></p>
+                            </a>
+                        </div>
+                    <?php
+                    }
                     ?>
-                    <div class="column is-6">
-                        <?php include(locate_template('template-parts/partials/mini-sermon.php')); ?>
-                    </div>
-                <?php } ?>
                 </div>
                 <?php include(locate_template('template-parts/partials/pagination.php')); ?>
             </div>
