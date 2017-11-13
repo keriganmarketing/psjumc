@@ -24,7 +24,7 @@ include(locate_template('template-parts/sections/top.php'));
             <div class="container">
 
                 <div class="columns is-multiline">
-                    <div class="column is-8-desktop">
+                    <div class="column is-8-desktop home-header-left">
                         <div class="slider-container">
                             <bulma-slider>
                                 <?php
@@ -34,7 +34,7 @@ include(locate_template('template-parts/sections/top.php'));
                             </bulma-slider>
                         </div>
                     </div>
-                    <div class="column is-12 is-4-desktop">
+                    <div class="column is-12 is-4-desktop home-header-right">
                         <div class="columns is-multiline">
                             <div class="column is-6 is-12-desktop">
                                 <a href="/online-sermons/">
