@@ -29,7 +29,7 @@ include(locate_template('template-parts/sections/top.php'));
         <div class="section vimeo-archive">
             <div class="container">
                 <div class="columns is-multiline">
-                <?php foreach($results->data as $event){ ?>
+                <?php foreach($results as $event){ ?>
                     <div class="column is-6">
                         <?php include(locate_template('template-parts/partials/mini-event.php')); ?>
                     </div>
