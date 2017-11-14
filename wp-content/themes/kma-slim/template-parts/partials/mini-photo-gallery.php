@@ -2,7 +2,7 @@
 use KeriganSolutions\FacebookPhotoGallery\FacebookPhotoGallery;
 
 $gallery  = new FacebookPhotoGallery();
-$albums   = $gallery->albums();
+$albums   = $gallery->albums(9);
 ?>
 <div class="card mini-photo-gallery">
     <div class="card-content">

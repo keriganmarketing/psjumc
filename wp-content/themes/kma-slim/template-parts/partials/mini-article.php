@@ -15,7 +15,7 @@ $photoUrl = $result->full_picture;
         <?php } else { ?>
             <figure class="image video is-16by9">
                 <iframe
-                        src="<?php echo 'https://www.facebook.com/plugins/video.php?href='.$result->link ?>"
+                        src="<?php echo $result->link ?>"
                         style="border:none;overflow:hidden"
                         scrolling="no"
                         frameborder="0"
@@ -23,7 +23,7 @@ $photoUrl = $result->full_picture;
                         allowFullScreen="true"
                         class="article-image"
                         width="100%"
-                        height="460">
+                        height="170">
 
                 </iframe>
             </figure>
