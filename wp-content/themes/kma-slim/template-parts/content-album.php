@@ -16,8 +16,10 @@ $before  = $_GET['before'] ?? null;
 // Cursor after the returned data set
 $after   = $_GET['after'] ?? null;
 
+$albumId = $_GET['albumId'] ?? null;
+
 $gallery = new FacebookPhotoGallery();
-$albums   = $gallery->albums(9, $before, $after);
+$photos  = $gallery->albumPhotos($albumId, 18, $before, $after);
 
 include(locate_template('template-parts/sections/top.php'));
 ?>
@@ -36,18 +38,15 @@ include(locate_template('template-parts/sections/top.php'));
 
                 <div class="columns is-multiline">
                     <?php
-                    foreach ($albums->data as $album) { ?>
+                    foreach ($photos->data as $photo) { ?>
                         <div class="column is-4">
-                            <a href="/album/?albumId=<?= $album->id ?>">
-                                <img src="<?= $album->cover_photo->images[0]->source ?>" alt="" class="img">
-                                <p class="has-text-centered"><?= $album->name ?></p>
-                            </a>
+                            <img src="<?= $photo->images[0]->source ?>" alt="" class="img">
                         </div>
                     <?php
                     }
                     ?>
                 </div>
-                <?php include(locate_template('template-parts/partials/facebook-album-pagination.php')); ?>
+                <?php include(locate_template('template-parts/partials/facebook-photo-pagination.php')); ?>
             </div>
         </div>
     </article>

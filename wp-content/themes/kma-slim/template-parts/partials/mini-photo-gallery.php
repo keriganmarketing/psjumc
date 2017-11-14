@@ -10,9 +10,11 @@ $albums   = $gallery->albums(9);
         <div class="columns is-multiline photos">
             <?php foreach ($albums->data as $album) { ?>
                 <div class="column is-4">
-                    <figure class="image is-1by1">
-                        <img src="<?= $album->cover_photo->picture ?>" alt="Placeholder image">
-                    </figure>
+                    <a href="/album/?albumId=<?= $album->id ?>">
+                        <figure class="image is-1by1">
+                            <img src="<?= $album->cover_photo->picture ?>" alt="Placeholder image">
+                        </figure>
+                    </a>
                 </div>
             <?php } ?>
         </div>
