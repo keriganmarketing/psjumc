@@ -420,25 +420,27 @@ body {
       padding: 0 2rem;
     }
 
+    .title {
+      font-family: $header-font-family;
+      font-weight: 300;
+      color: #31081F;
+      font-size: 2.6em;
+      @media screen and (min-width: $tablet){
+        font-size: 2.8em;
+      }
+    }
+    .subtitle {
+      font-family: $fancy-font;
+      color: #5dc5cd;
+      font-size: 2.4em;
+    }
+
     .entry-content {
       margin-bottom: 2rem;
 
-      .title {
-        font-family: $header-font-family;
-        font-weight: 300;
-        color: #31081F;
-        font-size: 2.6em;
-        @media screen and (min-width: $tablet){
-          font-size: 2.8em;
-        }
-      }
-      .subtitle {
-        font-family: $fancy-font;
-        color: #5dc5cd;
-        font-size: 2.4em;
-      }
       p {
         text-align: justify;
+        margin-bottom: 1rem;
       }
     }
   }
@@ -501,17 +503,22 @@ body {
     }
   }
 
-  .section.subscribe {
+  .subscribe {
     background-color: #038a99;
-    padding: 2.5rem 0;
-    @media screen and (min-width: $tablet){
-      padding: 3rem 0;
+    padding: 1.5rem 0;
+
+    .section-title {
+      h2.title {
+        color: #FFF !important;
+        margin-bottom: 0;
+        padding-bottom: 0;
+      }
     }
 
     .section-content {
       width: 370px;
       max-width: 100%;
-      padding: 1rem;
+      padding: 0 2rem;
       margin: auto;
       text-align: center;
       color: #FFF;
@@ -522,6 +529,35 @@ body {
       }
     }
   }
+
+  .section.subscribe {
+    padding: 2.5rem 0;
+    @media screen and (min-width: $tablet) {
+      padding: 3rem 0;
+    }
+
+   .section-content {
+      width: 418px;
+      max-width: 100%;
+      padding: 0 2rem;
+      margin: auto;
+      text-align: center;
+      color: #FFF;
+    }
+  }
+
+  //sidebar
+  .sidebar {
+    .sidebar-section {
+      margin-bottom: .75rem;
+    }
+  }
+  @media screen and (min-width: $desktop) {
+    .entry-content.has-sidebar {
+      padding-right: 2rem;
+    }
+  }
+
 
   //partials
   .mini-worship-times {

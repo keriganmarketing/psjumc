@@ -27,10 +27,7 @@ $layouts->addPageHeadlines();
 $layouts->createSidebarSelector();
 $layouts->addSidebar('Online Sermons');
 $layouts->addSidebar('Salt Life eNewsletter');
-
-//$layouts->createLayouts();
-//$layouts->addLayout('two-column','two column page layout','twocol');
-
+$layouts->addSidebar('Subscribe');
 
 $slider = new BulmaSlider();
 $slider->createPostType();

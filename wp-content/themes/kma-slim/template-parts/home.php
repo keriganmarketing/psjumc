@@ -33,14 +33,10 @@ include(locate_template('template-parts/sections/top.php'));
                     <div class="column is-12 is-4-desktop home-header-right">
                         <div class="columns is-multiline">
                             <div class="column is-6 is-12-desktop">
-                                <a href="/online-sermons/">
-                                    <img class="photo-button" src="<?= get_template_directory_uri() . '/img/Online sermons@2x.png'; ?>" alt="ways to give to <?= get_bloginfo(); ?>" >
-                                </a>
+                                <?php include(locate_template('template-parts/partials/online-sermons.php')); ?>
                             </div>
                             <div class="column is-6 is-12-desktop">
-                                <a href="/salt-life-newsletter/">
-                                    <img class="photo-button" src="<?= get_template_directory_uri() . '/img/Newsletter@2x.png'; ?>" alt="ways to give to <?= get_bloginfo(); ?>" >
-                                </a>
+                                <?php include(locate_template('template-parts/partials/salt-life-enewsletter.php')); ?>
                             </div>
                         </div>
                     </div>
@@ -65,7 +61,7 @@ include(locate_template('template-parts/sections/top.php'));
         </div>
         <div class="section subscribe">
             <div class="container">
-                <?php include(locate_template('template-parts/sections/subscribe.php')); ?>
+                <?php include(locate_template('template-parts/partials/subscribe.php')); ?>
             </div>
         </div>
     </article>

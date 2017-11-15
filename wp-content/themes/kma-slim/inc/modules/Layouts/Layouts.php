@@ -170,4 +170,22 @@ class Layouts
 
     }
 
+    public function hasSidebars($post){
+        $terms = wp_get_post_terms($post->ID,'sidebar');
+        return count($terms) > 0 ? true : false;
+    }
+
+    public function getSidebars($post){
+
+        $terms = wp_get_post_terms($post->ID,'sidebar');
+        $sidebars = [];
+
+        foreach ($terms as $term){
+            $sidebars[] = str_replace('_','-', $term->slug);
+        }
+
+        return $sidebars;
+
+    }
+
 }
