@@ -99,15 +99,33 @@ body {
   }
 
   .modal-content.large {
-    width:800px;
-    max-width: 100%;
+    max-width: 91vh;
+    max-height: 91vh;
     margin:0;
+    width:100%;
 
-    iframe {
-      border: 0;
-      width: 100%;
-      height: 100%;
+    .image-wrapper {
+      overflow: hidden;
+
+      img {
+        max-height: 90vh;
+        max-width: 90vh;
+        height: auto;
+        width:auto;
+      }
     }
+
+    .video-wrapper {
+      overflow: visible;
+
+      iframe {
+        max-height: 90vh;
+        max-width: 90vh;
+        height: 768px;
+        width: 1024px;
+      }
+    }
+
   }
 
 }
@@ -403,6 +421,8 @@ body {
     }
 
     .entry-content {
+      margin-bottom: 2rem;
+
       .title {
         font-family: $header-font-family;
         font-weight: 300;

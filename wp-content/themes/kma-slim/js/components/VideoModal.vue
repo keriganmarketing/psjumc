@@ -1,6 +1,6 @@
 <template>
     <div class="video-wrapper">
-        <iframe :src="'https://player.vimeo.com/video/' + this.vimeoCode + '?autoplay=1&portrait=0'" width="800" height="450" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+        <iframe :src="'https://player.vimeo.com/video/' + this.vimeoCode + '?autoplay=1&portrait=0'" width="1024" height="768" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
     </div>
 </template>
 

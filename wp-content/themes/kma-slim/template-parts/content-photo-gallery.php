@@ -38,9 +38,9 @@ include(locate_template('template-parts/sections/top.php'));
                     <?php
                     foreach ($albums->data as $album) { ?>
                         <div class="column is-3">
-                            <figure class="image is-1by1">
+                            <figure class="image is-4by3">
                                 <a href="/album/?albumName=<?= $album->name ?>&albumId=<?= $album->id ?>">
-                                    <img src="<?= $album->cover_photo->images[0]->source ?>" alt="<?= $album->name ?>" class="img">
+                                    <img src="<?= $album->cover_photo->images[4]->source ?>" alt="<?= $album->name ?>" class="img">
                                 </a>
                             </figure>
                             <p class="has-text-centered"><?= $album->name ?></p>

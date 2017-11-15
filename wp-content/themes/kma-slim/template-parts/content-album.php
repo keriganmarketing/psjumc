@@ -39,9 +39,9 @@ include(locate_template('template-parts/sections/top.php'));
                     <?php
                     foreach ($photos->data as $photo) { ?>
                         <div class="column is-3">
-                            <figure class="image is-1by1">
+                            <figure class="image is-4by3">
                                 <a @click="$emit('toggleModal', 'imageViewer', '<?= $photo->images[0]->source ?>')" >
-                                    <img src="<?= $photo->images[5]->source ?>" alt="<?= $photo->images[0]->name ?>" class="img">
+                                    <img src="<?= $photo->images[4]->source ?>" alt="<?= $photo->images[0]->name ?>" class="img">
                                 </a>
                             </figure>
                         </div>
