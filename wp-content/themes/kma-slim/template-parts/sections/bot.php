@@ -66,6 +66,5 @@ $field = new PageField();
             </div>
         </div><!-- .sticky-footer -->
     </div><!-- .site-wrapper -->
-    <modal></modal>
 </div><!-- .app -->
 <?php wp_footer(); ?>

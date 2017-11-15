@@ -26,7 +26,7 @@ $results = $feed->fetch(9);
                 </div>
 
                 <div class="columns is-multiline">
-                <?php foreach ($results as $result) { ?>
+                <?php foreach ($results->posts as $result) { ?>
                     <div class="column is-4">
                         <?php include(locate_template('template-parts/partials/mini-article.php')); ?>
                     </div>

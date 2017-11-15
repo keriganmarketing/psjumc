@@ -17,7 +17,7 @@ use KeriganSolutions\FacebookFeed\FacebookFeed;
         $feed    = new FacebookFeed();
         $results = $feed->fetch(1);
 
-        foreach ($results as $result) {
+        foreach ($results->posts as $result) {
             include(locate_template('template-parts/partials/mini-article.php'));
         }
         ?>

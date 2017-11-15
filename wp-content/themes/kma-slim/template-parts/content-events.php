@@ -78,7 +78,7 @@ include(locate_template('template-parts/sections/top.php'));
     </article>
     <div class="section connect">
         <div class="container">
-            <?php include(locate_template('template-parts/partials/connect.php')); ?>
+            <?php include(locate_template('template-parts/sections/connect.php')); ?>
         </div>
     </div>
 </div>

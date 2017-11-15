@@ -612,13 +612,23 @@ body {
       color: #31081F;
       font-weight:300;
     }
+
+    .subtitle {
+      font-family: 'Work Sans', sans-serif !important;
+      font-size: 16px !important;
+      color: inherit !important;
+    }
+
   }
 
   .mini-article {
+    height:100%;
+    justify-content: space-between;
+
     .card-image {
       figure.image {
         overflow: hidden;
-        background-color: #333333;
+        background-color: #F6F4F0;
 
         img {
           height: auto !important;
@@ -638,6 +648,12 @@ body {
           margin: auto;
         }
       }
+    }
+
+    .time-posted {
+      font-style: italic;
+      color: rgba(0,0,0,.5);
+      margin-bottom: .5rem;
     }
   }
 

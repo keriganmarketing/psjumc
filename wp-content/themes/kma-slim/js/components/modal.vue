@@ -4,6 +4,7 @@
         <div class="modal-content large">
             <image-modal v-if="this.$parent.modalOpen == 'imageViewer'" :imageUrl="this.modalContent" ></image-modal>
             <video-modal v-if="this.$parent.modalOpen == 'videoViewer'" :vimeoCode="this.modalContent"></video-modal>
+            <embed-modal v-if="this.$parent.modalOpen == 'embedViewer'" :htmlContent="this.modalContent"></embed-modal>
         </div>
         <button class="modal-close is-large" @click="toggleModal"></button>
     </div>
@@ -12,6 +13,7 @@
 <script>
     import ImageModal from './ImageModal.vue';
     import VideoModal from './VideoModal.vue';
+    import EmbedModal from './EmbedModal.vue';
 
     export default {
         data() {
@@ -22,7 +24,8 @@
         },
         components: {
             'video-modal' : VideoModal,
-            'image-modal': ImageModal
+            'image-modal': ImageModal,
+            'embed-modal': EmbedModal
         },
         methods: {
             toggleModal(){
