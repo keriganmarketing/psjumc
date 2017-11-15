@@ -17,7 +17,7 @@ $before  = $_GET['before'] ?? null;
 $after   = $_GET['after'] ?? null;
 
 $gallery = new FacebookPhotoGallery();
-$albums   = $gallery->albums(9, $before, $after);
+$albums   = $gallery->albums(12, $before, $after);
 
 include(locate_template('template-parts/sections/top.php'));
 ?>
@@ -34,14 +34,16 @@ include(locate_template('template-parts/sections/top.php'));
                     <?php the_content(); ?>
                 </div>
 
-                <div class="columns is-multiline">
+                <div class="columns is-multiline photo-gallery">
                     <?php
                     foreach ($albums->data as $album) { ?>
-                        <div class="column is-4">
-                            <a href="/album/?albumId=<?= $album->id ?>">
-                                <img src="<?= $album->cover_photo->images[0]->source ?>" alt="" class="img">
-                                <p class="has-text-centered"><?= $album->name ?></p>
-                            </a>
+                        <div class="column is-3">
+                            <figure class="image is-1by1">
+                                <a href="/album/?albumName=<?= $album->name ?>&albumId=<?= $album->id ?>">
+                                    <img src="<?= $album->cover_photo->images[0]->source ?>" alt="<?= $album->name ?>" class="img">
+                                </a>
+                            </figure>
+                            <p class="has-text-centered"><?= $album->name ?></p>
                         </div>
                     <?php
                     }

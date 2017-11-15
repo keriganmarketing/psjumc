@@ -2,18 +2,27 @@
     <div class="modal is-active" v-if="this.$parent.modalOpen != ''">
         <div class="modal-background" @click="toggleModal"></div>
         <div class="modal-content large">
-            <slot></slot>
+            <image-modal v-if="this.$parent.modalOpen == 'imageViewer'" :imageUrl="this.modalContent" ></image-modal>
+            <video-modal v-if="this.$parent.modalOpen == 'videoViewer'" :vimeoCode="this.modalContent"></video-modal>
         </div>
         <button class="modal-close is-large" @click="toggleModal"></button>
     </div>
 </template>
 
 <script>
+    import ImageModal from './ImageModal.vue';
+    import VideoModal from './VideoModal.vue';
+
     export default {
         data() {
             return {
-                showModal: false
+                showModal: false,
+                modalContent: []
             }
+        },
+        components: {
+            'video-modal' : VideoModal,
+            'image-modal': ImageModal
         },
         methods: {
             toggleModal(){
@@ -26,10 +35,12 @@
         mounted() {
             //console.log('Component mounted.');
 
-            this.$parent.$on('toggleModal', function (modal,keyframe) {
+            this.$parent.$on('toggleModal', function (modal,content) {
                 this.modalOpen = modal;
+                this.$children[0].modalContent = content;
             });
 
         }
+
     }
 </script>

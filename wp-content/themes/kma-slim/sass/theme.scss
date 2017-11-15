@@ -626,6 +626,23 @@ body {
     }
   }
 
+  .photo-gallery{
+    figure.image {
+      overflow: hidden;
+      background-color: #E6E1D6;
+
+      img {
+        width: 100%;
+        height: inherit;
+        max-width: none;
+        max-height: none;
+        min-width: inherit;
+        min-height: inherit;
+        margin: auto;
+      }
+    }
+  }
+
 }
 
 

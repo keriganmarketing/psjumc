@@ -8,8 +8,7 @@ use KeriganSolutions\FacebookPhotoGallery\FacebookPhotoGallery;
  * @since 1.0
  * @version 1.2
  */
-$headline = ($post->page_information_headline != '' ? $post->page_information_headline : $post->post_title);
-$subhead = ($post->page_information_subhead != '' ? $post->page_information_subhead : '');
+$headline = isset($_GET['albumName']) ? $_GET['albumName'] : 'Album';
 
 // Cursor before the returned data set
 $before  = $_GET['before'] ?? null;
@@ -19,7 +18,9 @@ $after   = $_GET['after'] ?? null;
 $albumId = $_GET['albumId'] ?? null;
 
 $gallery = new FacebookPhotoGallery();
-$photos  = $gallery->albumPhotos($albumId, 18, $before, $after);
+$photos  = $gallery->albumPhotos($albumId, 16, $before, $after);
+
+//echo '<pre>',print_r($photos),'</pre>';
 
 include(locate_template('template-parts/sections/top.php'));
 ?>
@@ -32,15 +33,17 @@ include(locate_template('template-parts/sections/top.php'));
 
                 <div class="entry-content">
                     <h1 class="title"><?php echo $headline; ?></h1>
-                    <?php echo ($subhead!='' ? '<p class="subtitle">'.$subhead.'</p>' : null); ?>
-                    <?php the_content(); ?>
                 </div>
 
-                <div class="columns is-multiline">
+                <div class="columns is-multiline photo-gallery">
                     <?php
                     foreach ($photos->data as $photo) { ?>
-                        <div class="column is-4">
-                            <img src="<?= $photo->images[0]->source ?>" alt="" class="img">
+                        <div class="column is-3">
+                            <figure class="image is-1by1">
+                                <a @click="$emit('toggleModal', 'imageViewer', '<?= $photo->images[0]->source ?>')" >
+                                    <img src="<?= $photo->images[5]->source ?>" alt="<?= $photo->images[0]->name ?>" class="img">
+                                </a>
+                            </figure>
                         </div>
                     <?php
                     }
