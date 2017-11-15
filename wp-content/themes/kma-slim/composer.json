@@ -11,6 +11,7 @@
     "guzzlehttp/guzzle": "^6.3",
     "vimeo/vimeo-api": "^1.3",
     "kerigansolutions/facebookfeed": "^0.11.0",
-    "kerigansolutions/facebook-photo-gallery": "^0.6.0"
+    "kerigansolutions/facebook-photo-gallery": "^0.6.0",
+    "nesbot/carbon": "^1.22"
   }
 }

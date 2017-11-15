@@ -1,20 +1,14 @@
 <?php
+
+use Carbon\Carbon;
+
 date_default_timezone_set('America/Chicago');
 
 $content    = $event->message;
-$startTime  = date('g:i a', strtotime($event->start_time));
-$endTime    = date('g:i a', strtotime($event->end_time));
-$endYear    = date('Y', strtotime($event->end_time));
-$startMonth = date('M', strtotime($event->start_time));
-$endMonth   = date('M', strtotime($event->end_time));
-$startDay   = date('d', strtotime($event->start_time));
-$endDay     = date('j', strtotime($event->end_time));
-
-$startDate  = date('M j', strtotime($event->start_time));
-$endDate    = ($startMonth == $endMonth ? $endDay : $endMonth . ' ' . $endDay);
-
-$eventDate  = ($startDate != $endDate ? $startDate . ' - ' . $endDate . ', ' . $endYear : $startDate . ', ' . $endYear);
-$eventTime  = ($startTime != $endTime ? $startTime . ' - ' . $endTime : $startTime);
+$start      = Carbon::parse($event->start_time);
+$end        = isset($event->end_time) ? Carbon::parse($event->end_time) : null;
+$eventTimes = $end != null ? $start->copy()->format('g:i A') . ' - '. $end->copy()->format('g:i A') : $start->copy()->format('g:i A');
+$eventDates = $end != null && $end->diffInDays($start) > 1 ? $start->copy()->format('M d') . ' - '. $end->copy()->format('M d, Y') : $start->format('M d, Y');
 ?>
 <div class="card mini-event">
     <div class="card-image">
@@ -29,11 +23,11 @@ $eventTime  = ($startTime != $endTime ? $startTime . ' - ' . $endTime : $startTi
         <table class="event-table">
             <tr>
                 <td class="date-block" >
-                    <p class="month"><?= $startMonth; ?></p>
-                    <p class="day"><?= $startDay; ?></p>
+                    <p class="month"><?= $start->copy()->format('M'); ?></p>
+                    <p class="day"><?= $start->copy()->format('d'); ?></p>
                 </td>
                 <td>
-                    <p class="time"><strong><?= $eventDate; ?> | <?= $eventTime; ?></strong></p>
+                    <p class="time"><strong><?= $eventDates; ?> | <?= $eventTimes; ?></strong></p>
                     <p class="location"><?= $event->place->name; ?></p>
                 </td>
             </tr>
