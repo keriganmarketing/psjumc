@@ -348,6 +348,18 @@ body {
     font-size: 1.2em;
   }
 
+  a.image-button::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 10px 0 10px 17.3px;
+    border-color: transparent transparent transparent #ffffff;
+    right: 9px;
+    margin-top: -30px;
+  }
+
   //sections
   .section {
     clear: both;
