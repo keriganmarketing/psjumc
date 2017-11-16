@@ -12,6 +12,7 @@ use Includes\Modules\Navwalker\BulmaNavwalker;
 <a class="skip-link screen-reader-text" href="#content"><?php _e('Skip to content', 'kmaslim'); ?></a>
 <div id="app">
     <div id="MobileNavMenu" :class="[{ 'is-active': isOpen }, 'navbar']">
+        <div class="nav-wrapper">
         <?php wp_nav_menu([
             'theme_location' => 'mobile-menu',
             'container'      => false,
@@ -25,6 +26,7 @@ use Includes\Modules\Navwalker\BulmaNavwalker;
         ]); ?>
         <div class="navbar-close" id="MobileNavClose" data-target="MobileNavMenu" @click="toggleMenu">
             <span class="delete"></span>&nbsp;close menu
+        </div>
         </div>
     </div>
     <div :class="['site-wrapper', { 'menu-open': isOpen }, {'full-height': footerStuck }, {'scrolling': isScrolling }]">

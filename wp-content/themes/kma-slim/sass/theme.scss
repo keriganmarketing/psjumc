@@ -24,10 +24,6 @@ body {
     z-index: 3;
     position: fixed;
     overflow: hidden;
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
     font-family: $header-font-family;
     text-align: center;
     font-size: 1.2em;
@@ -59,17 +55,42 @@ body {
     right: 0;
     box-shadow: 0 0 7px rgba(0, 0, 0, 0.2);
     background-color: #FFF;
-    overflow-y: scroll;
+    background-image: url("/wp-content/themes/kma-slim/img/shore.png");
+    background-size: cover;
+    background-position: bottom right;
     font-size: 1.6em;
     @media screen and (min-width: 370px) {
       width: 100%;
     }
 
+    .nav-wrapper {
+      height: 100vh;
+      width: 100%;
+      background-color: rgba(255,255,255,.8);
+      align-items: center;
+      justify-content: center;
+      display: flex;
+      flex-direction: column;
+    }
     #mobile-menu {
       width: 100%;
       .navbar-item{
         padding:0;
+        a.navbar-item, .navbar-link {
+          color: #31081F;
+        }
       }
+
+      a.navbar-item.is-active, .navbar-link.is-active {
+        background-color: #862C1B;
+        color: #ffffff;
+      }
+
+      a.navbar-item:hover, .navbar-link:hover {
+        background-color: transparent;
+        color: #31081F;
+      }
+
     }
   }
 
@@ -92,6 +113,10 @@ body {
         width: 960px;
       }
     }
+  }
+
+  .site-wrapper.menu-open {
+    display:none;
   }
 
   .site-wrapper.full-height {
@@ -244,17 +269,22 @@ body {
       .burger {
         display:none;
 
+        cursor: pointer;
         align-items: center;
         width: 90px;
         padding: 0 .25rem;
         background-color: #31081f;
         margin:auto 1rem;
 
-        @media screen and (max-width:768px){
+        @media screen and (max-width:1019px){
           display: flex;
           width:100%;
           justify-content: center;
           margin: 0;
+        }
+
+        @media screen and (min-width:768px){
+          margin: 0 0 0 10px;
         }
 
         .burger-label {
@@ -294,6 +324,11 @@ body {
           }
 
         }
+
+        .navbar-burger:hover {
+          background-color: transparent;
+        }
+
       }
     }
   }
