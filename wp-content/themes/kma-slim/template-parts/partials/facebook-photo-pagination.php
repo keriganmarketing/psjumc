@@ -12,7 +12,7 @@
     </a>
     <a
         class="pagination-next"
-        <?= ($disabledNext == false ? 'href="/album/?albumId='. $albumId . '&albumName='. $albumName . '&after=' . $photos->paging->cursors->after . '"' : ' disabled' ) ?>
+        <?= ($disabledNext == false ? 'href="/album/?albumId='. $albumId . '&test=foo&albumName='. $albumName . '&after=' . $photos->paging->cursors->after . '"' : ' disabled' ) ?>
     >
         Next page
     </a>
