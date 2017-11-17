@@ -59,12 +59,19 @@ include(locate_template('template-parts/sections/top.php'));
             </div>
         </section>
     </article>
-    <?php if(!$hasSidebars){ ?>
+
     <div class="section connect">
         <div class="container">
             <?php include(locate_template('template-parts/sections/connect.php')); ?>
         </div>
     </div>
+
+    <?php if(!$hasSidebars){ ?>
+        <div class="section subscribe">
+            <div class="container">
+                <?php include(locate_template('template-parts/partials/subscribe.php')); ?>
+            </div>
+        </div>
     <?php } ?>
 </div>
 <?php include(locate_template('template-parts/sections/bot.php')); ?>

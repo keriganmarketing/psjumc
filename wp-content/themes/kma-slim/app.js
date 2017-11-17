@@ -310,25 +310,37 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 "featureType": "landscape",
                 "elementType": "all",
                 "stylers": [{
-                    "hue": "#FFBB00"
+                    "hue": "#ff9500"
                 }, {
-                    "saturation": 43.400000000000006
+                    "saturation": "-27"
                 }, {
-                    "lightness": 37.599999999999994
+                    "lightness": "30"
                 }, {
-                    "gamma": 1
+                    "gamma": "1.23"
                 }]
             }, {
                 "featureType": "poi",
                 "elementType": "all",
                 "stylers": [{
-                    "hue": "#a0ff00"
+                    "hue": "#00ffcf"
                 }, {
-                    "saturation": "-21"
+                    "saturation": "-38"
                 }, {
-                    "lightness": "35"
+                    "lightness": "42"
                 }, {
                     "gamma": 1
+                }]
+            }, {
+                "featureType": "poi",
+                "elementType": "labels.text",
+                "stylers": [{
+                    "lightness": "-16"
+                }, {
+                    "weight": "1.24"
+                }, {
+                    "hue": "#00ffe0"
+                }, {
+                    "saturation": "-54"
                 }]
             }, {
                 "featureType": "road.highway",
@@ -336,21 +348,21 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 "stylers": [{
                     "hue": "#ffc200"
                 }, {
-                    "saturation": -61.8
+                    "saturation": "-55"
                 }, {
-                    "lightness": "7"
+                    "lightness": 45.599999999999994
                 }, {
-                    "gamma": 1
+                    "gamma": "0.36"
                 }]
             }, {
                 "featureType": "road.arterial",
                 "elementType": "all",
                 "stylers": [{
-                    "hue": "#ff0300"
+                    "hue": "#FF0300"
                 }, {
-                    "saturation": "-100"
+                    "saturation": -100
                 }, {
-                    "lightness": "20"
+                    "lightness": 51.19999999999999
                 }, {
                     "gamma": 1
                 }]
@@ -358,11 +370,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 "featureType": "road.local",
                 "elementType": "all",
                 "stylers": [{
-                    "hue": "#ff0300"
+                    "hue": "#FF0300"
                 }, {
                     "saturation": -100
                 }, {
-                    "lightness": "-14"
+                    "lightness": 52
                 }, {
                     "gamma": 1
                 }]
@@ -370,11 +382,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 "featureType": "water",
                 "elementType": "all",
                 "stylers": [{
-                    "hue": "#0078ff"
+                    "hue": "#0078FF"
                 }, {
-                    "saturation": "-65"
+                    "saturation": -13.200000000000003
                 }, {
-                    "lightness": "-7"
+                    "lightness": 2.4000000000000057
                 }, {
                     "gamma": 1
                 }]
@@ -410,7 +422,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             });
 
             bounds.extend(position);
-            map.fitBounds(bounds);
+            //map.fitBounds(bounds);
         };
 
         for (var i = 0; i < this.markers.length; i++) {

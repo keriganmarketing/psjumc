@@ -135,6 +135,16 @@ Social Media
   }
 }
 
+.social.in-line {
+  text-align: left;
+  display: flex;
+  align-items: center;
+
+  svg {
+    margin: .1rem .3rem;
+  }
+}
+
 .content {
   padding:0 2rem;
 }
