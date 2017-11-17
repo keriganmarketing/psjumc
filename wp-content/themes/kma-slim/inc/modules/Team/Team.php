@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: bbair
- * Date: 9/25/2017
- * Time: 8:51 PM
- */
 
 namespace Includes\Modules\Team;
 
@@ -51,6 +45,56 @@ class Team
         );
     }
 
+    protected function getImageSizes( $url )
+    {
+
+        $imageSizes    = [];
+        $images        = [];
+        $dir           = wp_upload_dir();
+
+        if (false !== strpos($url, $dir['baseurl'] . '/')) { // Is URL in uploads directory?
+            $file = basename( $url );
+
+            $query_args = array(
+                'post_type'   => 'attachment',
+                'post_status' => 'inherit',
+                'fields'      => 'ids',
+                'meta_query'  => array(
+                    array(
+                        'value'   => $file,
+                        'compare' => 'LIKE',
+                        'key'     => '_wp_attachment_metadata',
+                    ),
+                )
+            );
+
+            $query = new \WP_Query( $query_args );
+            if ( $query->have_posts() ) {
+                foreach ( $query->posts as $post_id ) {
+                    $meta              = wp_get_attachment_metadata($post_id);
+                    $originalFile      = basename($meta['file']);
+                    $croppedImageFiles = wp_list_pluck($meta['sizes'], 'file');
+                    if ($originalFile === $file || in_array($file, $croppedImageFiles)) {
+                        $images = $croppedImageFiles;
+                        $images['original'] = $originalFile;
+                        break;
+                    }
+                }
+            }
+        }
+
+        foreach ($images as $imageSize => $imageUrl){
+            $imageSizes[$imageSize] = [
+                'external_path' => $dir['baseurl'] . $dir['subdir'] . '/' . $imageUrl,
+                'local_path'    => wp_normalize_path($dir['path'] . '/' . $imageUrl),
+                'relative_path' => wp_normalize_path('/wp-content/uploads' . $dir['subdir'] . '/' . $imageUrl)
+            ];
+        }
+
+        return $imageSizes;
+
+    }
+
     /**
      * @return null
      */
@@ -63,7 +107,8 @@ class Team
                     'title'       => 'Name',
                     'wtitle'      => 'Title',
                     'email'       => 'Email Address',
-                    'photo'       => 'Photo'
+                    'photo'       => 'Photo',
+                    'date'        => 'Date'
                 ];
 
                 return $defaults;
@@ -74,18 +119,18 @@ class Team
         add_action('manage_team_member_posts_custom_column', function ($column_name, $post_ID) {
             switch ($column_name) {
                 case 'photo':
-                    $photo = get_post_meta($post_ID, 'contact_info_photo', true);
-                    echo(isset($photo) ? '<img src ="' . $photo . '" class="img-fluid" style="width:400px; max-width:100%;" >' : null);
+                    $photo = $this->getImageSizes(get_post_meta($post_ID, 'contact_info_photo', true));
+                    echo(isset($photo['thumbnail']['relative_path']) ? '<img src ="' . $photo['thumbnail']['relative_path'] . '" class="img-fluid" style="width:150px; max-width:100%;" >' : null);
                     break;
 
                 case 'email':
                     $object = get_post_meta($post_ID, 'contact_info_email', true);
-                    echo(isset($object) ? date('M j, Y', strtotime($object)) : null);
+                    echo(isset($object) ? '<a href="mailto:' . $object . '" >' . $object . '</a>' : null);
                     break;
 
                 case 'wtitle':
                     $object = get_post_meta($post_ID, 'contact_info_title', true);
-                    echo(isset($object) ? date('M j, Y', strtotime($object)) : null);
+                    echo(isset($object) ? $object : null);
                     break;
             }
         }, 0, 2);
@@ -107,14 +152,16 @@ class Team
         $output = [];
         foreach ($request as $item) {
             array_push($output, [
-                'id'         => (isset($itemID) ? $item->ID : null),
-                'name'       => $item->post_title,
-                'title'      => (isset($item->contact_info_title) ? $item->contact_info_title : null),
-                'email'      => (isset($item->contact_info_email) ? $item->contact_info_email : null),
-                'phone'      => (isset($item->contact_info_phone) ? $item->contact_info_phone : null),
-                'slug'       => (isset($item->post_name) ? $item->post_name : null),
-                'thumbnail'  => (isset($item->contact_info_photo) ? $item->contact_info_photo : null),
-                'link'       => get_permalink($item->ID),
+                'id'    => (isset($item->ID) ? $item->ID : null),
+                'name'  => $item->post_title,
+                'bio'   => apply_filters('the_content', $item->post_content),
+                'title' => (isset($item->contact_info_title) ? $item->contact_info_title : null),
+                'email' => (isset($item->contact_info_email) ? $item->contact_info_email : null),
+                'phone' => (isset($item->contact_info_phone) ? $item->contact_info_phone : null),
+                'slug'  => (isset($item->post_name) ? $item->post_name : null),
+                'photo' => (isset($item->contact_info_photo) ? $this->getImageSizes(get_post_meta($item->ID,
+                    'contact_info_photo', true)) : null),
+                'link'  => get_permalink($item->ID),
             ]);
         }
 
