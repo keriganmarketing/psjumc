@@ -10,7 +10,7 @@ use KeriganSolutions\FacebookFeed\FacebookEvents;
  * @version 1.2
  */
 $headline = ($post->page_information_headline != '' ? $post->page_information_headline : $post->post_title);
-$subhead = ($post->page_information_subhead != '' ? $post->page_information_subhead : '');
+$subhead  = ($post->page_information_subhead != '' ? $post->page_information_subhead : '');
 
 $feed          = new FacebookEvents();
 $results       = $feed->fetch(9);
