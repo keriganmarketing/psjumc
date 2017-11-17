@@ -1,5 +1,6 @@
 <?php
 
+use Includes\Modules\Team\Team;
 use Includes\Modules\Layouts\Layouts;
 
 /**
@@ -9,10 +10,12 @@ use Includes\Modules\Layouts\Layouts;
  * @version 1.2
  */
 $headline = ($post->page_information_headline != '' ? $post->page_information_headline : $post->post_title);
-$subhead = ($post->page_information_subhead != '' ? $post->page_information_subhead : '');
+$subhead  = ($post->page_information_subhead != '' ? $post->page_information_subhead : '');
 
-$layouts = new Layouts();
+$layouts     = new Layouts();
 $hasSidebars = $layouts->hasSidebars($post);
+$team        = new Team();
+$allTeam     = $team->getTeam();
 
 include(locate_template('template-parts/sections/top.php'));
 ?>
@@ -23,31 +26,25 @@ include(locate_template('template-parts/sections/top.php'));
         <section id="content" class="section support">
             <div class="container">
                 <h1 class="title"><?php echo $headline; ?></h1>
+                <?php echo ($subhead!='' ? '<p class="subtitle">'.$subhead.'</p>' : null); ?>
                 <?php if($hasSidebars){ ?>
                     <div class="columns is-multiline">
                         <div class="column is-12 is-8-desktop">
                 <?php } ?>
                             <div class="entry-content <?= $hasSidebars ? 'has-sidebar' : ''; ?>">
-
-                                <?php echo ($subhead!='' ? '<p class="subtitle">'.$subhead.'</p>' : null); ?>
-                                <?php if ( 'post' === get_post_type() ) : ?>
-                                    <div class="entry-meta">
-                                        <?php //kmaslim_posted_on(); ?>
-                                    </div>
-                                <?php endif; ?>
-
-                                <?php
-                                the_content( sprintf(
-                                /* translators: %s: Name of current post. */
-                                    wp_kses( __( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'kmaslim' ), array( 'span' => array( 'class' => array() ) ) ),
-                                    the_title( '<span class="screen-reader-text">"', '"</span>', false )
-                                ) );
-
-                                wp_link_pages( array(
-                                    'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'kmaslim' ),
-                                    'after'  => '</div>',
-                                ) );
-                                ?>
+                                <?php the_content(); ?>
+                                <?php foreach ($allTeam as $person){ ?>
+                                    <article class="person">
+                                        <?php if(isset($person['photo'])){ ?>
+                                        <figure class="image is-128x128 person-photo">
+                                            <img src="<?= $person['photo']['thumbnail']['relative_path']; ?>">
+                                        </figure>
+                                        <?php } ?>
+                                        <h2 class="title"><?= $person['name']; ?></h2>
+                                        <h3 class="subtitle"><?= $person['title']; ?></h3>
+                                        <?= $person['bio']; ?>
+                                        <hr>
+                                <?php } ?>
                             </div>
                 <?php if($hasSidebars){ ?>
                         </div>
@@ -59,12 +56,10 @@ include(locate_template('template-parts/sections/top.php'));
             </div>
         </section>
     </article>
-    <?php if(!$hasSidebars){ ?>
     <div class="section connect">
         <div class="container">
             <?php include(locate_template('template-parts/sections/connect.php')); ?>
         </div>
     </div>
-    <?php } ?>
 </div>
 <?php include(locate_template('template-parts/sections/bot.php')); ?>

@@ -485,6 +485,14 @@ body {
     .entry-content {
       margin-bottom: 2rem;
 
+      h2.title {
+        font-size: 1.8em;
+      }
+      h3.subtitle {
+        font-family: $header-font-family;
+        font-size: 1.5em;
+      }
+
       p {
         text-align: justify;
         margin-bottom: 1rem;
@@ -759,6 +767,13 @@ body {
         min-height: inherit;
         margin: auto;
       }
+    }
+  }
+
+  article.person {
+    .person-photo {
+      float: left;
+      margin: 0 1.5rem 1rem 0;
     }
   }
 

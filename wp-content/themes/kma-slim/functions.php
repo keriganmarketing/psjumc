@@ -6,6 +6,7 @@
  * @version 1.3
  */
 
+use Includes\Modules\Team\Team;
 use Includes\Modules\Leads\Leads;
 use Includes\Modules\Helpers\CleanWP;
 use Includes\Modules\Layouts\Layouts;
@@ -44,6 +45,10 @@ $pageField->addField(5, 'Worship Times', [
     'Photo' => 'image',
     'HTML'  => 'wysiwyg'
 ]);
+
+$team = new Team();
+$team->createPostType();
+$team->createAdminColumns();
 
 if ( ! function_exists( 'kmaslim_setup' ) ) :
 
