@@ -35,7 +35,7 @@ include(locate_template('template-parts/sections/top.php'));
                                 <?php the_content(); ?>
                                 <?php foreach ($allTeam as $person){ ?>
                                     <article class="person">
-                                        <?php if(isset($person['photo'])){ ?>
+                                        <?php if(isset($person['photo']['thumbnail']['relative_path'])){ ?>
                                         <figure class="image is-128x128 person-photo">
                                             <img src="<?= $person['photo']['thumbnail']['relative_path']; ?>">
                                         </figure>
