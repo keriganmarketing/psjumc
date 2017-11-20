@@ -37,11 +37,19 @@ include(locate_template('template-parts/sections/top.php'));
 
                 <div class="columns is-multiline photo-gallery">
                     <?php
-                    foreach ($photos->data as $photo) { ?>
+                    foreach ($photos->data as $photo) {
+                        $thumnail = '';
+                        if ( ! isset($photo->images[4]->source)) {
+                            $thumbnail = $photo->images[0]->source;
+                        } else {
+                            $thumbnail = $photo->images[4]->source;
+                        }
+                        ?>
+
                         <div class="column is-3">
                             <figure class="image is-4by3">
                                 <a @click="$emit('toggleModal', 'imageViewer', '<?= $photo->images[0]->source ?>')" >
-                                    <img src="<?= $photo->images[4]->source ?>" alt="<?= $photo->images[0]->name ?>" class="img">
+                                    <img src="<?= $thumbnail ?>" alt="<?= $photo->images[0]->name ?>" class="img">
                                 </a>
                             </figure>
                         </div>
