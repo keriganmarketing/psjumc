@@ -487,7 +487,13 @@ body {
 
       h2 {
         font-family: $header-font-family;
-        font-size: 1.3em;
+        font-size: 1.5em;
+        color: #31081f;
+      }
+
+      ul {
+        list-style: inside;
+        padding: 0 0 1rem 1.25rem;
       }
 
       h2.title {
