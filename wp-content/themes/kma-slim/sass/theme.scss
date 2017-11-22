@@ -24,6 +24,7 @@ body {
     z-index: 3;
     position: fixed;
     overflow: hidden;
+    overflow-y: scroll;
     font-family: $header-font-family;
     text-align: center;
     font-size: 1.2em;
