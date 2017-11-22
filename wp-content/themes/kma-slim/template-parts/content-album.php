@@ -33,6 +33,7 @@ include(locate_template('template-parts/sections/top.php'));
 
                 <div class="entry-content">
                     <h1 class="title"><?php echo $headline; ?></h1>
+                    <a href="/photo-gallery/" class="pagination-link">View All Albums</a>
                 </div>
 
                 <div class="columns is-multiline photo-gallery">

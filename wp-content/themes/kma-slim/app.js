@@ -214,7 +214,8 @@ var app = new Vue({
         footerStuck: false,
         clientHeight: 0,
         windowHeight: 0,
-        windowWidth: 0
+        windowWidth: 0,
+        menuItems: []
     },
 
     methods: {
@@ -224,6 +225,20 @@ var app = new Vue({
         handleScroll: function handleScroll() {
             this.scrollPosition = window.scrollY;
             this.isScrolling = this.scrollPosition > 0;
+        },
+        handleMobileSubMenu: function handleMobileSubMenu() {
+            this.menuItems.forEach(function (menuItem) {
+                var menuLink = menuItem.querySelector('.mobile-expand');
+                menuLink.addEventListener('click', function (e) {
+                    var menu = menuItem.querySelector('.navbar-dropdown');
+                    console.info(menu);
+                    if (menu.classList.contains('is-open')) {
+                        menu.classList.remove('is-open');
+                    } else {
+                        menu.classList.add('is-open');
+                    }
+                });
+            });
         }
     },
 
@@ -232,19 +247,16 @@ var app = new Vue({
         this.clientHeight = this.$root.$el.clientHeight;
         this.windowHeight = window.innerHeight;
         this.windowWidth = window.innerWidth;
-
-        console.log(this.clientHeight);
+        this.handleScroll();
+        this.menuItems = this.$el.querySelectorAll('#MobileNavMenu .has-dropdown');
+        this.handleMobileSubMenu();
     },
-
     created: function created() {
         window.addEventListener('scroll', this.handleScroll);
-        this.handleScroll;
     },
-
     destroyed: function destroyed() {
         window.removeEventListener('scroll', this.handleScroll);
     }
-
 });
 
 /***/ }),
