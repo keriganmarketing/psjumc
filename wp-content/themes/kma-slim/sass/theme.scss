@@ -161,6 +161,20 @@ body {
       align-content: center;
       justify-content: center;
 
+      .icon {
+        height: 50px;
+        color: #FFF;
+        width: 50px;
+        margin-top: auto;
+        margin-bottom: auto;
+        border-radius: 50%;
+        cursor: pointer;
+      }
+
+      .icon:hover, .icon:focus {
+        background-color: rgba(10, 10, 10, 0.3);
+      }
+
       img {
         height: auto;
         width: auto;
@@ -870,13 +884,9 @@ body {
 .home {
   #mid {
     .section.top-section {
-      background-image: url('/wp-content/themes/kma-slim/img/water photo.png');
-      background-position: center top;
-      background-size: cover;
       padding-top: 176px;
       @media screen and (min-width: $tablet){
         padding-top: 165px;
-        padding-bottom: 0;
       }
     }
   }

@@ -55,7 +55,7 @@ include(locate_template('template-parts/sections/top.php'));
                             </figure>
                         </div>
                     <?php
-                        $modalContent .= '<img src="'.$photo->images[0]->source.'" alt="'.$photo->images[0]->name.'" index="'.$i.'" >';
+                        $modalContent .= '<img src="'.$photo->images[0]->source.'" alt="'.$photo->images[0]->name.'" :index="'.$i.'" >';
                         $i++;
                     }
                     ?>

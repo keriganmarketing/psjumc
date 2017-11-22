@@ -231,7 +231,6 @@ var app = new Vue({
                 var menuLink = menuItem.querySelector('.mobile-expand');
                 menuLink.addEventListener('click', function (e) {
                     var menu = menuItem.querySelector('.navbar-dropdown');
-                    console.info(menu);
                     if (menu.classList.contains('is-open')) {
                         menu.classList.remove('is-open');
                     } else {
@@ -521,22 +520,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     methods: {
         nextSlide: function nextSlide() {
-            var _this2 = this;
-
-            this.images.forEach(function (image) {
-                if (image.data.attrs.index === _this2.activeImage) {
-                    _this2.activeImage = image.data.attrs.index < _this2.images.length ? image.data.attrs.index + 1 : 0;
-                }
-            });
+            this.activeImage = this.activeImage < this.images.length - 1 ? this.activeImage + 1 : 0;
         },
         prevSlide: function prevSlide() {
-            var _this3 = this;
-
-            this.images.forEach(function (image) {
-                if (image.data.attrs.index === _this3.activeImage) {
-                    _this3.activeImage = image.data.attrs.index > 0 ? image.data.attrs.index - 1 : _this3.images.length;
-                }
-            });
+            this.activeImage = this.activeImage > 0 ? this.activeImage - 1 : this.images.length - 1;
         },
         clickNext: function clickNext() {
             this.nextSlide();

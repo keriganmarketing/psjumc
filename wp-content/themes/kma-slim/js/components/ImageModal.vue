@@ -39,19 +39,11 @@
         methods: {
 
             nextSlide(){
-                this.images.forEach(image => {
-                    if(image.data.attrs.index === this.activeImage){
-                        this.activeImage = (image.data.attrs.index < this.images.length ? image.data.attrs.index + 1 : 0);
-                    }
-                });
+                this.activeImage = (this.activeImage < this.images.length -1 ? this.activeImage + 1 : 0);
             },
 
             prevSlide(){
-                this.images.forEach(image => {
-                    if(image.data.attrs.index === this.activeImage){
-                        this.activeImage = (image.data.attrs.index > 0 ? image.data.attrs.index - 1 : this.images.length);
-                    }
-                });
+                this.activeImage = (this.activeImage > 0 ? this.activeImage - 1 : this.images.length -1);
             },
 
             clickNext(){
