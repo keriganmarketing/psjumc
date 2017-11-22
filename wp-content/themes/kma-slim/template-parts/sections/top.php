@@ -30,7 +30,6 @@ use Includes\Modules\Navwalker\BulmaNavwalker;
         </div>
     </div>
     <div :class="['site-wrapper', { 'menu-open': isOpen }, {'full-height': footerStuck }, {'scrolling': isScrolling }]">
-        <modal></modal>
         <div class="site-mobile-overlay"></div>
 
         <header id="top" class="header" >

@@ -474,11 +474,66 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+
     props: {
         imageUrl: ''
+    },
+
+    data: function data() {
+        return {
+            images: [],
+            activeImage: 0
+        };
+    },
+    created: function created() {
+        this.images = this.$slots.default;
+    },
+    mounted: function mounted() {
+        var _this = this;
+
+        this.images.forEach(function (image) {
+            if (image.data.attrs.src === _this.imageUrl) {
+                _this.activeImage = image.data.attrs.index < _this.images.length ? image.data.attrs.index : 0;
+            }
+        });
+    },
+
+
+    methods: {
+        nextSlide: function nextSlide() {
+            var _this2 = this;
+
+            this.images.forEach(function (image) {
+                if (image.data.attrs.index === _this2.activeImage) {
+                    _this2.activeImage = image.data.attrs.index < _this2.images.length ? image.data.attrs.index + 1 : 0;
+                }
+            });
+        },
+        prevSlide: function prevSlide() {
+            var _this3 = this;
+
+            this.images.forEach(function (image) {
+                if (image.data.attrs.index === _this3.activeImage) {
+                    _this3.activeImage = image.data.attrs.index > 0 ? image.data.attrs.index - 1 : _this3.images.length;
+                }
+            });
+        },
+        clickNext: function clickNext() {
+            this.nextSlide();
+        },
+        clickPrev: function clickPrev() {
+            this.prevSlide();
+        }
     }
+
 });
 
 /***/ }),
@@ -1867,11 +1922,31 @@ if (false) {
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "image-wrapper"
-  }, [_c('img', {
-    attrs: {
-      "src": this.imageUrl
+  }, [_c('div', {
+    staticClass: "image-slider-left icon is-large",
+    on: {
+      "click": _vm.clickPrev
     }
-  })])
+  }, [_c('i', {
+    staticClass: "fa fa-angle-left is-large",
+    attrs: {
+      "aria-hidden": "true"
+    }
+  })]), _vm._v(" "), _c('img', {
+    attrs: {
+      "src": this.images[_vm.activeImage].data.attrs.src
+    }
+  }), _vm._v(" "), _c('div', {
+    staticClass: "image-slider-right icon is-large",
+    on: {
+      "click": _vm.clickNext
+    }
+  }, [_c('i', {
+    staticClass: "fa fa-angle-right is-large",
+    attrs: {
+      "aria-hidden": "true"
+    }
+  })])])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
@@ -1894,15 +1969,12 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "click": _vm.toggleModal
     }
   }), _vm._v(" "), _c('div', {
-    staticClass: "modal-content large",
-    on: {
-      "click": _vm.toggleModal
-    }
+    staticClass: "modal-content large"
   }, [(this.$parent.modalOpen == 'imageViewer') ? _c('image-modal', {
     attrs: {
       "imageUrl": this.modalContent
     }
-  }) : _vm._e(), _vm._v(" "), (this.$parent.modalOpen == 'videoViewer') ? _c('video-modal', {
+  }, [_vm._t("default")], 2) : _vm._e(), _vm._v(" "), (this.$parent.modalOpen == 'videoViewer') ? _c('video-modal', {
     attrs: {
       "vimeoCode": this.modalContent
     }

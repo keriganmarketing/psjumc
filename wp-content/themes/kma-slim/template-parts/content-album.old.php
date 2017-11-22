@@ -37,7 +37,6 @@ include(locate_template('template-parts/sections/top.php'));
 
                 <div class="columns is-multiline photo-gallery">
                     <?php
-                    $i = 0;
                     foreach ($photos->data as $photo) {
                         $thumbnail = '';
                         if ( ! isset($photo->images[4]->source)) {
@@ -54,8 +53,6 @@ include(locate_template('template-parts/sections/top.php'));
                             </figure>
                         </div>
                     <?php
-                        $modalContent .= '<img src="'.$photo->images[0]->source.'" alt="'.$photo->images[0]->name.'" index="'.$i.'" >';
-                        $i++;
                     }
                     ?>
                 </div>
