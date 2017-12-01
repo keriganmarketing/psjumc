@@ -213,7 +213,6 @@ body {
   width: 100%;
   overflow: hidden;
 }
-
 //Sticky Header
 #top {
   width: 100%;
@@ -324,6 +323,7 @@ body {
           display:none;
         }
       }
+
 
       .burger {
         display:none;
@@ -871,7 +871,7 @@ body {
 
     .pop-up {
       p strong {
-        font-style: 1.1em;
+        font-size: 1.1em;
       }
       p {
         margin: 0 0 .5rem;
