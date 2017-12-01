@@ -2,7 +2,7 @@
 $headline = ($post->post_name == 'home' ? 'News' : '');
 $dateposted = ($post->post_name == 'home' ? '' : human_time_diff(time(),strtotime($result->created_time)) . ' ago' );
 $content  = $result->message;
-$photoUrl = $result->full_picture;
+$photoUrl = $result->full_picture != null ? $result->full_picture : 'http://psjumc.dev/wp-content/uploads/2017/12/PSJUMC-Front.jpg';
 ?>
 <div class="card mini-article">
     <div class="card-image">

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "4e883a1cd4910277e88dc0e1d203a999",
+    "content-hash": "8a5c98c8e7b70fabbc52c02e61dcfe78",
     "packages": [
         {
             "name": "guzzlehttp/guzzle",
@@ -225,16 +225,16 @@
         },
         {
             "name": "kerigansolutions/facebookfeed",
-            "version": "0.13",
+            "version": "0.14.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kerigansolutions/facebookfeed.git",
-                "reference": "181e73ac85ef4959d604883b486dbbfc199285a3"
+                "reference": "7171b0069a9904bae4b9d02732673614b8458683"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kerigansolutions/facebookfeed/zipball/181e73ac85ef4959d604883b486dbbfc199285a3",
-                "reference": "181e73ac85ef4959d604883b486dbbfc199285a3",
+                "url": "https://api.github.com/repos/kerigansolutions/facebookfeed/zipball/7171b0069a9904bae4b9d02732673614b8458683",
+                "reference": "7171b0069a9904bae4b9d02732673614b8458683",
                 "shasum": ""
             },
             "require": {
@@ -256,7 +256,7 @@
                     "email": "daron.adkins@gmail.com"
                 }
             ],
-            "time": "2017-11-17T20:44:27+00:00"
+            "time": "2017-12-01T15:54:48+00:00"
         },
         {
             "name": "nesbot/carbon",
@@ -422,16 +422,16 @@
         },
         {
             "name": "symfony/translation",
-            "version": "v3.3.13",
+            "version": "v3.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/translation.git",
-                "reference": "373e553477e55cd08f8b86b74db766c75b987fdb"
+                "reference": "e05b0a5996ad7a35ba3a19ffad8b72c9daa64dfa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/translation/zipball/373e553477e55cd08f8b86b74db766c75b987fdb",
-                "reference": "373e553477e55cd08f8b86b74db766c75b987fdb",
+                "url": "https://api.github.com/repos/symfony/translation/zipball/e05b0a5996ad7a35ba3a19ffad8b72c9daa64dfa",
+                "reference": "e05b0a5996ad7a35ba3a19ffad8b72c9daa64dfa",
                 "shasum": ""
             },
             "require": {
@@ -440,13 +440,16 @@
             },
             "conflict": {
                 "symfony/config": "<2.8",
-                "symfony/yaml": "<3.3"
+                "symfony/dependency-injection": "<3.4",
+                "symfony/yaml": "<3.4"
             },
             "require-dev": {
                 "psr/log": "~1.0",
-                "symfony/config": "~2.8|~3.0",
-                "symfony/intl": "^2.8.18|^3.2.5",
-                "symfony/yaml": "~3.3"
+                "symfony/config": "~2.8|~3.0|~4.0",
+                "symfony/dependency-injection": "~3.4|~4.0",
+                "symfony/finder": "~2.8|~3.0|~4.0",
+                "symfony/intl": "^2.8.18|^3.2.5|~4.0",
+                "symfony/yaml": "~3.4|~4.0"
             },
             "suggest": {
                 "psr/log": "To use logging capability in translator",
@@ -456,7 +459,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.3-dev"
+                    "dev-master": "3.4-dev"
                 }
             },
             "autoload": {
@@ -483,7 +486,7 @@
             ],
             "description": "Symfony Translation Component",
             "homepage": "https://symfony.com",
-            "time": "2017-11-07T14:12:55+00:00"
+            "time": "2017-11-27T14:23:00+00:00"
         },
         {
             "name": "vimeo/vimeo-api",
