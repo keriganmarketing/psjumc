@@ -214,7 +214,8 @@ var app = new Vue({
         footerStuck: false,
         clientHeight: 0,
         windowHeight: 0,
-        windowWidth: 0
+        windowWidth: 0,
+        menuItems: []
     },
 
     methods: {
@@ -224,6 +225,19 @@ var app = new Vue({
         handleScroll: function handleScroll() {
             this.scrollPosition = window.scrollY;
             this.isScrolling = this.scrollPosition > 0;
+        },
+        handleMobileSubMenu: function handleMobileSubMenu() {
+            this.menuItems.forEach(function (menuItem) {
+                var menuLink = menuItem.querySelector('.mobile-expand');
+                menuLink.addEventListener('click', function (e) {
+                    var menu = menuItem.querySelector('.navbar-dropdown');
+                    if (menu.classList.contains('is-open')) {
+                        menu.classList.remove('is-open');
+                    } else {
+                        menu.classList.add('is-open');
+                    }
+                });
+            });
         }
     },
 
@@ -232,19 +246,16 @@ var app = new Vue({
         this.clientHeight = this.$root.$el.clientHeight;
         this.windowHeight = window.innerHeight;
         this.windowWidth = window.innerWidth;
-
-        console.log(this.clientHeight);
+        this.handleScroll();
+        this.menuItems = this.$el.querySelectorAll('#MobileNavMenu .has-dropdown');
+        this.handleMobileSubMenu();
     },
-
     created: function created() {
         window.addEventListener('scroll', this.handleScroll);
-        this.handleScroll;
     },
-
     destroyed: function destroyed() {
         window.removeEventListener('scroll', this.handleScroll);
     }
-
 });
 
 /***/ }),
@@ -474,11 +485,54 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+
     props: {
         imageUrl: ''
+    },
+
+    data: function data() {
+        return {
+            images: [],
+            activeImage: 0
+        };
+    },
+    created: function created() {
+        this.images = this.$slots.default;
+    },
+    mounted: function mounted() {
+        var _this = this;
+
+        this.images.forEach(function (image) {
+            if (image.data.attrs.src === _this.imageUrl) {
+                _this.activeImage = image.data.attrs.index < _this.images.length ? image.data.attrs.index : 0;
+            }
+        });
+    },
+
+
+    methods: {
+        nextSlide: function nextSlide() {
+            this.activeImage = this.activeImage < this.images.length - 1 ? this.activeImage + 1 : 0;
+        },
+        prevSlide: function prevSlide() {
+            this.activeImage = this.activeImage > 0 ? this.activeImage - 1 : this.images.length - 1;
+        },
+        clickNext: function clickNext() {
+            this.nextSlide();
+        },
+        clickPrev: function clickPrev() {
+            this.prevSlide();
+        }
     }
+
 });
 
 /***/ }),
@@ -1759,8 +1813,6 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('iframe', {
     attrs: {
       "src": 'https://player.vimeo.com/video/' + this.vimeoCode + '?autoplay=1',
-      "width": "1024",
-      "height": "768",
       "frameborder": "0",
       "webkitallowfullscreen": "",
       "mozallowfullscreen": "",
@@ -1869,11 +1921,31 @@ if (false) {
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "image-wrapper"
-  }, [_c('img', {
-    attrs: {
-      "src": this.imageUrl
+  }, [_c('div', {
+    staticClass: "image-slider-left icon is-large",
+    on: {
+      "click": _vm.clickPrev
     }
-  })])
+  }, [_c('i', {
+    staticClass: "fa fa-angle-left is-large",
+    attrs: {
+      "aria-hidden": "true"
+    }
+  })]), _vm._v(" "), _c('img', {
+    attrs: {
+      "src": this.images[_vm.activeImage].data.attrs.src
+    }
+  }), _vm._v(" "), _c('div', {
+    staticClass: "image-slider-right icon is-large",
+    on: {
+      "click": _vm.clickNext
+    }
+  }, [_c('i', {
+    staticClass: "fa fa-angle-right is-large",
+    attrs: {
+      "aria-hidden": "true"
+    }
+  })])])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
@@ -1901,7 +1973,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "imageUrl": this.modalContent
     }
-  }) : _vm._e(), _vm._v(" "), (this.$parent.modalOpen == 'videoViewer') ? _c('video-modal', {
+  }, [_vm._t("default")], 2) : _vm._e(), _vm._v(" "), (this.$parent.modalOpen == 'videoViewer') ? _c('video-modal', {
     attrs: {
       "vimeoCode": this.modalContent
     }

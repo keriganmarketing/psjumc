@@ -2,7 +2,7 @@
     <div class="modal is-active" v-if="this.$parent.modalOpen != ''">
         <div class="modal-background" @click="toggleModal"></div>
         <div class="modal-content large">
-            <image-modal v-if="this.$parent.modalOpen == 'imageViewer'" :imageUrl="this.modalContent" ></image-modal>
+            <image-modal v-if="this.$parent.modalOpen == 'imageViewer'" :imageUrl="this.modalContent" ><slot></slot></image-modal>
             <video-modal v-if="this.$parent.modalOpen == 'videoViewer'" :vimeoCode="this.modalContent"></video-modal>
             <embed-modal v-if="this.$parent.modalOpen == 'embedViewer'" :htmlContent="this.modalContent"></embed-modal>
         </div>

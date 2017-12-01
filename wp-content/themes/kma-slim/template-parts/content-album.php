@@ -33,19 +33,20 @@ include(locate_template('template-parts/sections/top.php'));
 
                 <div class="entry-content">
                     <h1 class="title"><?php echo $headline; ?></h1>
+                    <a href="/photo-gallery/" class="pagination-link">View All Albums</a>
                 </div>
 
                 <div class="columns is-multiline photo-gallery">
                     <?php
+                    $i = 0;
                     foreach ($photos->data as $photo) {
-                        $thumnail = '';
+                        $thumbnail = '';
                         if ( ! isset($photo->images[4]->source)) {
                             $thumbnail = $photo->images[0]->source;
                         } else {
                             $thumbnail = $photo->images[4]->source;
                         }
                         ?>
-
                         <div class="column is-3">
                             <figure class="image is-4by3">
                                 <a @click="$emit('toggleModal', 'imageViewer', '<?= $photo->images[0]->source ?>')" >
@@ -54,6 +55,8 @@ include(locate_template('template-parts/sections/top.php'));
                             </figure>
                         </div>
                     <?php
+                        $modalContent .= '<img src="'.$photo->images[0]->source.'" alt="'.$photo->images[0]->name.'" :index="'.$i.'" >';
+                        $i++;
                     }
                     ?>
                 </div>

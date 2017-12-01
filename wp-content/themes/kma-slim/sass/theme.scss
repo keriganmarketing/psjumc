@@ -17,13 +17,14 @@ body {
 
   #MobileNavMenu {
     width: 100%;
-    height: 100%;
+    min-height: 100vh;
     left:100%;
     right: -100%;
     top: 0;
     z-index: 3;
     position: fixed;
     overflow: hidden;
+    overflow-y: scroll;
     font-family: $header-font-family;
     text-align: center;
     font-size: 1.2em;
@@ -45,7 +46,7 @@ body {
       align-items: center;
       display: flex;
       font-size: .8em;
-      margin: 1.5rem 0;
+      margin: 1.5rem 0 .5rem;
     }
 
   }
@@ -53,6 +54,7 @@ body {
     width: 100%;
     left: auto;
     right: 0;
+    position: relative;
     box-shadow: 0 0 7px rgba(0, 0, 0, 0.2);
     background-color: #FFF;
     background-image: url("/wp-content/themes/kma-slim/img/shore.png");
@@ -64,7 +66,7 @@ body {
     }
 
     .nav-wrapper {
-      height: 100vh;
+      min-height: 100vh;
       width: 100%;
       background-color: rgba(255,255,255,.8);
       align-items: center;
@@ -79,11 +81,32 @@ body {
         a.navbar-item, .navbar-link {
           color: #31081F;
         }
+
+        .navbar-dropdown {
+          font-size: 1.2rem;
+          padding-bottom: 0.5rem;
+          padding-top: 0.25rem;
+          -webkit-transition: height .5s;
+          -moz-transition: height .5s;
+          -ms-transition: height .5s;
+          -o-transition: height .5s;
+          transition: height .5s;
+          height: 0;
+          overflow: hidden;
+          display: none;
+        }
+      }
+
+      .navbar-item.has-dropdown{
+        .navbar-dropdown.is-open {
+          height: auto;
+          display: block;
+        }
       }
 
       a.navbar-item.is-active, .navbar-link.is-active {
-        background-color: #862C1B;
-        color: #ffffff;
+        background-color: transparent;
+        color: #862C1B;
       }
 
       a.navbar-item:hover, .navbar-link:hover {
@@ -124,37 +147,72 @@ body {
   }
 
   .modal-content.large {
-    max-width: 91vh;
-    max-height: 91vh;
-    margin:0;
-    width:100%;
+    max-width: 94%;
+    max-height: 94%;
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
 
     .image-wrapper {
       overflow: hidden;
+      text-align: center;
+      height: 100%;
+      width: 100%;
+      display: flex;
+      align-content: center;
+      justify-content: center;
+
+      .icon {
+        height: 50px;
+        color: #FFF;
+        width: 50px;
+        margin-top: auto;
+        margin-bottom: auto;
+        border-radius: 50%;
+        cursor: pointer;
+      }
+
+      .icon:hover, .icon:focus {
+        background-color: rgba(10, 10, 10, 0.3);
+      }
 
       img {
-        max-height: 90vh;
-        max-width: 90vh;
         height: auto;
-        width:auto;
+        width: auto;
+        max-width: 100%;
+        max-height: 100%;
+        margin: auto;
       }
     }
 
     .video-wrapper {
-      overflow: visible;
+      overflow: hidden;
+      text-align: center;
+      height: 100%;
+      width: 100%;
 
       iframe {
-        max-height: 90vh;
-        max-width: 90vh;
-        height: 768px;
-        width: 1024px;
+        height: 100%;
+        width: 100%;
       }
+    }
+
+    .video-wrapper::after {
+      content: "";
+      display: block;
+      padding-bottom: 50%;
     }
 
   }
 
 }
 
+#app.modal-open {
+  position: fixed;
+  height:100%;
+  width: 100%;
+  overflow: hidden;
+}
 //Sticky Header
 #top {
   width: 100%;
@@ -198,7 +256,7 @@ body {
         transition: all linear .25s;
 
         @media screen and (max-width:767px) {
-          width: 160px;
+          width: 200px;
           height: auto;
         }
       }
@@ -265,6 +323,7 @@ body {
           display:none;
         }
       }
+
 
       .burger {
         display:none;
@@ -336,11 +395,13 @@ body {
 
 @media screen and (min-width: $desktop) {
   .scrolling #top {
-    background-color: rgba(255, 255, 255, .9);
+    background-image: url('/wp-content/themes/kma-slim/img/water photo.png');
+    background-position: center top;
+    background-size: cover;
     box-shadow: 0 0 5px rgba(0, 0, 0, .2);
     .logo {
-      height: 80px !important;
-      width: 124px !important;
+      height: 120px !important;
+      width: 182.36px !important;
     }
 
     .navbar-dropdown {
@@ -383,16 +444,24 @@ body {
     font-size: 1.2em;
   }
 
-  a.image-button::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 10px 0 10px 17.3px;
-    border-color: transparent transparent transparent #ffffff;
-    right: 9px;
-    margin-top: -30px;
+  a.image-button {
+    display: block;
+
+    .arrow {
+      display: block;
+      text-align: right;
+    }
+    .arrow::after {
+      content: '';
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 10px 0 10px 17.3px;
+      border-color: transparent transparent transparent #ffffff;
+      position: absolute;
+      margin-top: -30px;
+      margin-left: -30px;
+    }
   }
 
   //sections
@@ -423,7 +492,7 @@ body {
     background-image: url('/wp-content/themes/kma-slim/img/water photo.png');
     background-position: center top;
     background-size: cover;
-    padding-top: 149px;
+    padding-top: 135px;
     @media screen and (min-width: $tablet){
       padding-top: 165px;
       padding-bottom: 0;
@@ -442,6 +511,8 @@ body {
 
     .slider-container {
       height: 234px;
+      border: 1px solid #FFF;
+
       @media screen and (min-width: $tablet){
         height:516px;
       }
@@ -485,6 +556,21 @@ body {
     .entry-content {
       margin-bottom: 2rem;
 
+      h2 {
+        font-family: $header-font-family;
+        font-size: 1.5em;
+        color: #31081f;
+      }
+
+      h2, h3, h4, h5, h6 {
+        margin-top: .25rem;
+      }
+
+      ul {
+        list-style: inherit;
+        padding: 0 0 1rem 1.25rem;
+      }
+
       h2.title {
         font-size: 1.8em;
       }
@@ -494,8 +580,8 @@ body {
       }
 
       p {
-        text-align: justify;
-        margin-bottom: 1rem;
+        text-align: left;
+        margin: .25rem 0 .75rem;
       }
     }
   }
@@ -520,13 +606,16 @@ body {
       font-size: 2.4em;
     }
     p {
-      text-align: justify;
+      text-align: left;
     }
   }
 
   .section.entry-content.home {
     .title, .subtitle {
       text-align :center;
+    }
+    p {
+      text-align: justify;
     }
   }
 
@@ -545,7 +634,7 @@ body {
 
       .card-content {
         line-height: 1.3em;
-        text-align: justify;
+        text-align: left;
       }
 
       .title {
@@ -617,7 +706,8 @@ body {
   //partials
   .mini-worship-times {
     .card-content {
-      padding: 1.5rem 1rem;
+      padding: 1.25rem 1rem 1.25rem;
+      line-height: 1.5em !important;
     }
   }
 
@@ -648,7 +738,10 @@ body {
   }
 
   .mini-video {
-    height:100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
     .card-image.link img {
       width: 100%;
@@ -658,7 +751,7 @@ body {
 
     .card-content {
       line-height: 1.3em;
-      text-align: justify;
+      text-align: left;
     }
 
     .title {
@@ -683,7 +776,6 @@ body {
     .card-image {
       figure.image {
         overflow: hidden;
-        background-color: #F6F4F0;
 
         img {
           height: auto !important;
@@ -712,51 +804,38 @@ body {
     }
   }
 
-  .mini-event {
-    height:100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+  .section.support {
+    .mini-event {
+      height:100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
 
-    .card-content {
-      line-height: 1.3em;
-      text-align: justify;
+      .card-content {
+        line-height: 1.3em;
+        text-align: left;
+      }
 
-      .event-table {
-        margin:0 0 1rem;
-
-        td {
-          padding:.5rem 1rem;
-          vertical-align: middle;
-        }
-        td.date-block {
-          border:1px solid #31081F;
-          text-align: center;
-          text-transform: uppercase;
-          height: 75px;
-          width: 75px;
-
-          .month {
-            font-size:.9em;
-          }
-          .day {
-            font-size: 1.4em;
-          }
-        }
+      .title {
+        font-family: $header-font-family;
+        color: #31081F;
+        font-weight:300;
       }
     }
 
-    .title {
-      font-family: $header-font-family;
-      color: #31081F;
-      font-weight:300;
+    .is-4 {
+      .mini-event {
+        h3.title {
+          font-size:1.8em;
+        }
+      }
     }
   }
+
 
   .photo-gallery{
     figure.image {
       overflow: hidden;
-      background-color: #E6E1D6;
 
       img {
         width: 100%;
@@ -792,7 +871,7 @@ body {
 
     .pop-up {
       p strong {
-        font-style: 1.1em;
+        font-size: 1.1em;
       }
       p {
         margin: 0 0 .5rem;
@@ -801,6 +880,17 @@ body {
     }
   }
   
+}
+
+.home {
+  #mid {
+    .section.top-section {
+      padding-top: 176px;
+      @media screen and (min-width: $tablet){
+        padding-top: 165px;
+      }
+    }
+  }
 }
 
 

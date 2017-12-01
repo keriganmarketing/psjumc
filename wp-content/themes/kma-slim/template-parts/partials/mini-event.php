@@ -20,21 +20,15 @@ $eventDates = $end != null && $end->diffInDays($start) > 1 ? $start->copy()->for
     </div>
     <div class="card-content">
         <h3 class="title"><?= $event->name; ?></h3>
-        <table class="event-table">
-            <tr>
-                <td class="date-block" >
-                    <p class="month"><?= $start->copy()->format('M'); ?></p>
-                    <p class="day"><?= $start->copy()->format('d'); ?></p>
-                </td>
-                <td>
-                    <p class="time"><strong><?= $eventDates; ?> | <?= $eventTimes; ?></strong></p>
-                    <p class="location"><?= $event->place->name; ?></p>
-                </td>
-            </tr>
-        </table>
+        <p class="time"><strong><?= $eventDates; ?> | <?= $eventTimes; ?></strong></p>
+        <p class="location"><?= $event->place->name; ?></p>
         <?= wp_trim_words( $event->description, $num_words = 22, '...' ); ?>
     </div>
     <div class="card-footer">
-        <a class="card-footer-item is-primary" href="https://www.facebook.com/events/<?= $event->id; ?>">Read more & RSVP on Facebook</a>
+        <?php if($isFuture){ ?>
+            <a class="card-footer-item is-primary" href="https://www.facebook.com/events/<?= $event->id; ?>">Read more & RSVP on Facebook</a>
+        <?php } else { ?>
+            <a class="card-footer-item is-primary" href="https://www.facebook.com/events/<?= $event->id; ?>">Read more on Facebook</a>
+        <?php } ?>
     </div>
 </div>

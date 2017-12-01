@@ -39,6 +39,7 @@ var app = new Vue({
         clientHeight: 0,
         windowHeight: 0,
         windowWidth: 0,
+        menuItems: []
     },
 
     methods: {
@@ -50,25 +51,39 @@ var app = new Vue({
         handleScroll(){
             this.scrollPosition = window.scrollY;
             this.isScrolling = this.scrollPosition > 0;
+        },
+
+        handleMobileSubMenu(){
+            this.menuItems.forEach(menuItem => {
+                let menuLink = menuItem.querySelector('.mobile-expand');
+                menuLink.addEventListener('click', function(e){
+                    let menu = menuItem.querySelector('.navbar-dropdown');
+                    if(menu.classList.contains('is-open')){
+                        menu.classList.remove('is-open');
+                    } else {
+                        menu.classList.add('is-open');
+                    }
+                });
+            });
         }
 
     },
 
-    mounted: function() {
+    mounted() {
         this.footerStuck = window.innerHeight > this.$root.$el.clientHeight;
         this.clientHeight = this.$root.$el.clientHeight;
         this.windowHeight = window.innerHeight;
         this.windowWidth = window.innerWidth;
-
-        console.log(this.clientHeight);
+        this.handleScroll();
+        this.menuItems = this.$el.querySelectorAll('#MobileNavMenu .has-dropdown');
+        this.handleMobileSubMenu();
     },
 
-    created: function () {
+    created() {
         window.addEventListener('scroll', this.handleScroll);
-        this.handleScroll;
     },
 
-    destroyed: function () {
+    destroyed() {
         window.removeEventListener('scroll', this.handleScroll);
     }
 

@@ -39,6 +39,7 @@ include(locate_template('template-parts/sections/top.php'));
                             if (Carbon::parse($event->start_time)->gt($now)) { ?>
                             <div class="column is-6">
                                 <?php
+                                    $isFuture = true;
                                     include(locate_template('template-parts/partials/mini-event.php'));
                                     $futureCounter++;
                                 ?>
@@ -51,13 +52,16 @@ include(locate_template('template-parts/sections/top.php'));
                         }
                         ?>
                     </div>
+                    <hr>
                     <h2 class="title">Previous Events</h2>
                     <div class="columns is-multiline">
                         <?php
                         foreach ($results->data as $event) {
                             if (Carbon::parse($event->start_time)->lt($now) && Carbon::parse($event->start_time)->gt($now->copy()->subMonths(6))) { ?>
-                            <div class="column is-6">
-                                <?php include(locate_template('template-parts/partials/mini-event.php'));
+                            <div class="column is-4">
+                                <?php
+                                $isFuture = false;
+                                include(locate_template('template-parts/partials/mini-event.php'));
                                 $pastCounter++;
                                 ?>
                             </div>
