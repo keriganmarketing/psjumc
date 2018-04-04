@@ -14,7 +14,7 @@ use KeriganSolutions\FacebookFeed\FacebookFeed;
     <div class="column is-4 level-item">
         <?php
         //do Facebook thingy for 1 article here.
-        $feed    = new FacebookFeed();
+        $feed    = new FacebookFeed(FACEBOOK_PAGE_ID,FACEBOOK_ACCESS_TOKEN);
         $results = $feed->fetch(1);
 
         foreach ($results->posts as $result) {

@@ -12,7 +12,7 @@ use KeriganSolutions\FacebookFeed\FacebookEvents;
 $headline = ($post->page_information_headline != '' ? $post->page_information_headline : $post->post_title);
 $subhead  = ($post->page_information_subhead != '' ? $post->page_information_subhead : '');
 
-$feed          = new FacebookEvents();
+$feed          = new FacebookEvents(FACEBOOK_PAGE_ID,FACEBOOK_ACCESS_TOKEN);
 $results       = $feed->fetch(9);
 $now           = Carbon::now('America/Chicago');
 $futureCounter = 0;
@@ -35,7 +35,7 @@ include(locate_template('template-parts/sections/top.php'));
                     <h2 class="title">Upcoming Events</h2>
                     <div class="columns is-multiline">
                         <?php
-                        foreach ($results->data as $event) {
+                        foreach ($results->posts as $event) {
                             if (Carbon::parse($event->start_time)->gt($now)) { ?>
                             <div class="column is-6">
                                 <?php
@@ -56,7 +56,7 @@ include(locate_template('template-parts/sections/top.php'));
                     <h2 class="title">Previous Events</h2>
                     <div class="columns is-multiline">
                         <?php
-                        foreach ($results->data as $event) {
+                        foreach ($results->posts as $event) {
                             if (Carbon::parse($event->start_time)->lt($now) && Carbon::parse($event->start_time)->gt($now->copy()->subMonths(6))) { ?>
                             <div class="column is-4">
                                 <?php
