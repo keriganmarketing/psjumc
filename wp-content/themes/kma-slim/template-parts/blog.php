@@ -10,7 +10,7 @@ use KeriganSolutions\FacebookFeed\FacebookFeed;
  */
 
 include(locate_template('template-parts/sections/top.php'));
-$feed    = new FacebookFeed();
+$feed    = new FacebookFeed(FACEBOOK_PAGE_ID,FACEBOOK_ACCESS_TOKEN);
 $results = $feed->fetch(9);
 ?>
 <div id="mid" >
