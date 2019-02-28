@@ -34,6 +34,8 @@ class Team
             ]
         );
 
+        $team->addTaxonomy('Department');
+
         $team->addMetaBox(
             'Contact Info',
             [
@@ -43,6 +45,8 @@ class Team
                 'Phone'        => 'text',
             ]
         );
+        $this->setupShortcode();
+
     }
 
     protected function getImageSizes( $url )
@@ -136,7 +140,7 @@ class Team
         }, 0, 2);
     }
 
-    public function getTeam($args = [])
+    public function getTeam($args = [], $category = '')
     {
         $request = [
             'post_type'      => 'team_member',
@@ -146,6 +150,18 @@ class Team
             'offset'         => 0,
             'post_status'    => 'publish',
         ];
+
+        if ($category != '') {
+            $categoryarray        = [
+                [
+                    'taxonomy'         => 'department',
+                    'field'            => 'slug',
+                    'terms'            => $category,
+                    'include_children' => false,
+                ],
+            ];
+            $request['tax_query'] = $categoryarray;
+        }
 
         $request = get_posts(array_merge($request, $args));
 
@@ -188,5 +204,26 @@ class Team
         }
 
         return $output;
+    }
+
+    public function setupShortcode()
+    {
+        add_shortcode( 'team', function( $atts ){
+            $atts = shortcode_atts( array(
+                'category' => ''
+            ), $atts, 'team' );
+
+            $data = $this->getTeam([],$atts['category']);
+            ob_start();
+
+            echo'<div class="team">';
+            foreach($data as $person){
+                include(locate_template('template-parts/partials/mini-team.php'));
+            }
+            echo '</div>';
+
+            return ob_get_clean();
+
+        } );
     }
 }
