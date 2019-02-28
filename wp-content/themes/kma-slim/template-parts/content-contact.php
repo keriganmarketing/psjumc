@@ -40,7 +40,7 @@ include(locate_template('template-parts/sections/top.php'));
                         </div>
                     </div>
                     <div class="column is-9">
-                        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRXeRhZCIYcKhtc-rfHCejAJsEW9rYtt4" ></script>
+                        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDSse2ehed8wP4EA6ob3aZNiebR_Nwx8mM" ></script>
                         <google-map :latitude="29.8057935" :longitude="-85.3017811" :zoom="11" name="location" >
                             <pin :latitude="29.8057935" :longitude="-85.3017811" title="First United Methodist Church">
                                 <p><strong>First United Methodist Church</strong></p>
