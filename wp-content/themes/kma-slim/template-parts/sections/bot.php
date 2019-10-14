@@ -50,7 +50,8 @@ $field = new PageField();
                     <div class="contact-info has-text-centered">
                         <p class="email-address"><a href="mailto:<?= $field->getField('contact_info_email_address', 5); ?>" ><?= $field->getField('contact_info_email_address', 5); ?></a></p>
                         <p class="phone-number"><a href="tel:<?= $field->getField('contact_info_phone_number', 5); ?>" ><?= $field->getField('contact_info_phone_number', 5); ?></a></p>
-                        <p class="physical-address"><?= nl2br($field->getField('contact_info_physical_address', 5)); ?></p>
+                        <p class="physical-address">visit: <?= nl2br($field->getField('contact_info_physical_address', 5)); ?></p>
+                        <p class="physical-address">mail: PO Box 266, Port St. Joe, FL  32457</p>
                         <p class="directions-link"><a target="_blank" href="<?= $field->getField('contact_info_directions_link', 5); ?>" >Get directions</a></p>
                     </div>
                 </div>
