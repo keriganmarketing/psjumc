@@ -8,18 +8,21 @@ use KeriganSolutions\FacebookFeed\FacebookFeed;
     <div class="column is-4 level-item">
         <?php include(locate_template('template-parts/partials/mini-worship-times.php')); ?>
     </div>
-    <div class="column is-4 level-item">
-        <?php include(locate_template('template-parts/partials/mini-photo-gallery.php')); ?>
-    </div>
+    <!--<div class="column is-4 level-item">
+        <?php //include(locate_template('template-parts/partials/mini-photo-gallery.php')); ?>
+    </div>-->
     <div class="column is-4 level-item">
         <?php
         //do Facebook thingy for 1 article here.
         $feed    = new FacebookFeed(FACEBOOK_PAGE_ID,FACEBOOK_ACCESS_TOKEN);
-        $results = $feed->fetch(1);
-
-        foreach ($results->posts as $result) {
-            include(locate_template('template-parts/partials/mini-article.php'));
-        }
+		if($feed){
+        	$results = $feed->fetch(1);
+		}
+		if($results->posts){
+			foreach ($results->posts as $result) {
+				include(locate_template('template-parts/partials/mini-article.php'));
+			}	
+		}
         ?>
     </div>
 </div>
