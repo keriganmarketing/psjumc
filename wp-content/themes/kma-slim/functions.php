@@ -13,6 +13,8 @@ use Includes\Modules\Layouts\Layouts;
 use Includes\Modules\Helpers\PageField;
 use Includes\Modules\Slider\BulmaSlider;
 use Includes\Modules\Social\SocialSettingsPage;
+use Includes\Modules\KMAFacebook\FacebookController;
+
 
 require('vendor/autoload.php');
 
@@ -22,6 +24,9 @@ $socialLinks = new SocialSettingsPage();
 if(is_admin()) {
     $socialLinks->createPage();
 }
+
+$facebook = new FacebookController();
+$facebook->setupAdmin();
 
 $layouts = new Layouts();
 $layouts->addPageHeadlines();

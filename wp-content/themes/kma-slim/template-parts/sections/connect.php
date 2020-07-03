@@ -1,5 +1,5 @@
 <?php
-use KeriganSolutions\FacebookFeed\FacebookFeed;
+use Includes\Modules\KMAFacebook\FacebookController;
 ?>
 <div class="section-title">
     <h2 class="title">Connect</h2>
@@ -14,12 +14,10 @@ use KeriganSolutions\FacebookFeed\FacebookFeed;
     <div class="column is-4 level-item">
         <?php
         //do Facebook thingy for 1 article here.
-        $feed    = new FacebookFeed(FACEBOOK_PAGE_ID,FACEBOOK_ACCESS_TOKEN);
-		if($feed){
-        	$results = $feed->fetch(1);
-		}
-		if($results->posts){
-			foreach ($results->posts as $result) {
+        $facebook = new FacebookController();
+        $feed = $facebook->getFbPosts(1);
+		if(count($feed) > 0){
+			foreach ($feed as $result) {
 				include(locate_template('template-parts/partials/mini-article.php'));
 			}	
 		}

@@ -1,7 +1,7 @@
 <?php
 
 use Carbon\Carbon;
-use KeriganSolutions\FacebookFeed\FacebookEvents;
+use Includes\Modules\KMAFacebook\FacebookController;
 
 /**
  * @package KMA
@@ -12,8 +12,8 @@ use KeriganSolutions\FacebookFeed\FacebookEvents;
 $headline = ($post->page_information_headline != '' ? $post->page_information_headline : $post->post_title);
 $subhead  = ($post->page_information_subhead != '' ? $post->page_information_subhead : '');
 
-$feed          = new FacebookEvents(FACEBOOK_PAGE_ID,FACEBOOK_ACCESS_TOKEN);
-$results       = $feed->fetch(9);
+$facebook      = new FacebookController();
+$feed          = $facebook->getFbEvents(30);
 $now           = Carbon::now('America/Chicago');
 $futureCounter = 0;
 $pastCounter   = 0;
@@ -32,50 +32,52 @@ include(locate_template('template-parts/sections/top.php'));
                     <?php echo ($subhead!='' ? '<p class="subtitle">'.$subhead.'</p>' : null); ?>
                     <?php the_content(); ?>
 
+                    <?php if(count($feed) > 0){ ?>
                     <h2 class="title">Upcoming Events</h2>
                     <div class="columns is-multiline">
                         <?php
-                        foreach ($results->posts as $event) {
-                            if (Carbon::parse($event->start_time)->gt($now)) { ?>
-                            <div class="column is-6">
+                            foreach ($feed as $event) {
+                                if (Carbon::parse($event->start_time)->gt($now)) { ?>
+                                <div class="column is-6">
+                                    <?php
+                                        $isFuture = true;
+                                        include(locate_template('template-parts/partials/mini-event.php'));
+                                        $futureCounter++;
+                                    ?>
+                                </div>
                                 <?php
-                                    $isFuture = true;
-                                    include(locate_template('template-parts/partials/mini-event.php'));
-                                    $futureCounter++;
-                                ?>
-                            </div>
-                            <?php
+                                }
                             }
-                        }
-                        if ($futureCounter == 0) {
-                            echo '<div class="column is-6"><p>No events are currently scheduled</p></div><hr>';
-                        }
+                            if ($futureCounter == 0) {
+                                echo '<div class="column is-6"><p>No events are currently scheduled</p></div><hr>';
+                            }
                         ?>
                     </div>
                     <hr>
                     <h2 class="title">Previous Events</h2>
                     <div class="columns is-multiline">
                         <?php
-                        foreach ($results->posts as $event) {
-                            if (Carbon::parse($event->start_time)->lt($now) && Carbon::parse($event->start_time)->gt($now->copy()->subMonths(6))) { ?>
-                            <div class="column is-4">
-                                <?php
-                                $isFuture = false;
-                                include(locate_template('template-parts/partials/mini-event.php'));
-                                $pastCounter++;
-                                ?>
-                            </div>
-                        <?php
+                            foreach ($feed as $event) {
+                                if (Carbon::parse($event->start_time)->lt($now) && Carbon::parse($event->start_time)->gt($now->copy()->subMonths(6))) { ?>
+                                <div class="column is-4">
+                                    <?php
+                                    $isFuture = false;
+                                    include(locate_template('template-parts/partials/mini-event.php'));
+                                    $pastCounter++;
+                                    ?>
+                                </div>
+                            <?php
+                                }
+                                if ($pastCounter >= 6) {
+                                    break;
+                                }
                             }
-                            if ($pastCounter >= 4) {
-                                break;
+                            if ($pastCounter == 0) {
+                                echo '<p>No recent events to display</p><hr>';
                             }
-                        }
-                        if ($pastCounter == 0) {
-                            echo '<p>No recent events to display</p><hr>';
-                        }
                         ?>
                     </div>
+                    <?php } ?>
                 </div>
             </div>
         </div>
