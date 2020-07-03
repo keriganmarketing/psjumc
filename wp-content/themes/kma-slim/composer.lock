@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9b453a4df2273fccc692fdb7730da4b4",
+    "content-hash": "1c995f96005655cb4706a6593d402bc4",
     "packages": [
         {
             "name": "guzzlehttp/guzzle",
@@ -225,16 +225,16 @@
         },
         {
             "name": "kerigansolutions/fb-autoblog-wp",
-            "version": "dev-master",
+            "version": "0.24",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kerigansolutions/fb-autoblog-wp.git",
-                "reference": "e845284c7fa6a5f7d9b75e14c42ad914f9ddeafa"
+                "reference": "bb40187aabdb1293eab892429fa463a41a69ead1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kerigansolutions/fb-autoblog-wp/zipball/e845284c7fa6a5f7d9b75e14c42ad914f9ddeafa",
-                "reference": "e845284c7fa6a5f7d9b75e14c42ad914f9ddeafa",
+                "url": "https://api.github.com/repos/kerigansolutions/fb-autoblog-wp/zipball/bb40187aabdb1293eab892429fa463a41a69ead1",
+                "reference": "bb40187aabdb1293eab892429fa463a41a69ead1",
                 "shasum": ""
             },
             "require": {
@@ -257,7 +257,7 @@
                     "email": "daron.adkins@gmail.com"
                 }
             ],
-            "time": "2018-03-23T16:54:28+00:00"
+            "time": "2020-07-02T22:21:55+00:00"
         },
         {
             "name": "nesbot/carbon",
@@ -581,6 +581,7 @@
             ],
             "description": "scssphp is a compiler for SCSS written in PHP.",
             "homepage": "http://leafo.net/scssphp/",
+            "abandoned": "scssphp/scssphp",
             "time": "2014-08-05T05:45:15+00:00"
         },
         {
@@ -630,9 +631,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "kerigansolutions/fb-autoblog-wp": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
