@@ -15,7 +15,7 @@ $photoUrl = $result->full_image_url != null ? $result->full_image_url : 'http://
         <?php } else { ?>
             <figure class="image" style="flex-grow:1;" >
                 <iframe
-                    src="<?php echo $result->video_url ?>"
+                    src="https://www.facebook.com/plugins/video.php?href=<?= urlencode($fbPost->post_link); ?>"
                     style="border:none;overflow:hidden"
                     scrolling="no"
                     frameborder="0"
