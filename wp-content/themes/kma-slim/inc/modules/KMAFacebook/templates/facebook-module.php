@@ -27,7 +27,7 @@ if(count($feed) > 0){ ?>
         <?php if ($isVideo == true) { ?>
             <div class="card-video">
                 <iframe
-                        src="https://www.facebook.com/plugins/video.php?href=<?= urlencode($fbPost->post_link); ?>"
+                        src="https://www.facebook.com/plugins/video.php?href=<?= $fbPost->post_link; ?>"
                         style="border:none;overflow:hidden"
                         scrolling="no"
                         frameborder="0"
