@@ -10,8 +10,8 @@ use Includes\Modules\Navwalker\BulmaNavwalker;
  */
 ?>
 <a class="skip-link screen-reader-text" href="#content"><?php _e('Skip to content', 'kmaslim'); ?></a>
-<div id="app" :class="{'modal-open': modalOpen }">
-    <div id="MobileNavMenu" :class="[{ 'is-active': isOpen }, 'navbar']">
+<div id="app" v-bind:class="{'modal-open': modalOpen }">
+    <div id="MobileNavMenu" v-bind:class="[{ 'is-active': isOpen }, 'navbar']">
         <div class="nav-wrapper">
         <?php wp_nav_menu([
             'theme_location' => 'mobile-menu',
@@ -29,7 +29,7 @@ use Includes\Modules\Navwalker\BulmaNavwalker;
         </div>
         </div>
     </div>
-    <div :class="['site-wrapper', { 'menu-open': isOpen }, {'full-height': footerStuck }, {'scrolling': isScrolling }]">
+    <div v-bind:class="['site-wrapper', { 'menu-open': isOpen }, {'full-height': footerStuck }, {'scrolling': isScrolling }]">
         <div class="site-mobile-overlay"></div>
 
         <header id="top" class="header" >
