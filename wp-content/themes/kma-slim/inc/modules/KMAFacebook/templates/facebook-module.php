@@ -27,15 +27,15 @@ if(count($feed) > 0){ ?>
         <?php if ($isVideo == true) { ?>
             <div class="card-video">
                 <iframe
-                        src="https://www.facebook.com/plugins/video.php?href=<?= $fbPost->post_link; ?>"
-                        style="border:none;overflow:hidden"
-                        scrolling="no"
-                        frameborder="0"
-                        allowTransparency="true"
-                        allowFullScreen="true"
-                        width="100%"
-                        height="225">
-                </iframe>
+                    src="https://www.facebook.com/plugins/video.php?href=<?= $fbPost->post_link; ?>"
+                    style="border:none;overflow:hidden"
+                    scrolling="no"
+                    frameborder="0"
+                    allowTransparency="true"
+                    allowFullScreen="true"
+                    width="100%"
+                    height="100%"
+                ></iframe>
             </div>
         <?php } ?>
         <div class="card-content">

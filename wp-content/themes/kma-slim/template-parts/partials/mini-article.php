@@ -13,7 +13,7 @@ $photoUrl = $result->full_image_url != null ? $result->full_image_url : 'http://
                 </a>
             </figure>
         <?php } else { ?>
-            <figure class="image" style="flex-grow:1;" >
+            <figure class="image video" style="flex-grow:1;" >
                 <iframe
                     src="https://www.facebook.com/plugins/video.php?href=<?= $result->post_link; ?>"
                     style="border:none;overflow:hidden"
