@@ -8,8 +8,6 @@ $facebook = new FacebookController();
 
 $feed = $facebook->getFbPosts(12);
 
-// echo '<pre>',print_r($feed),'</pre>';
-
 if(count($feed) > 0){ ?>
 <div class="columns is-multiline" >
 <?php foreach ($feed as $fbPost) {

@@ -143,6 +143,30 @@ class FacebookController
         return $output;
     }
 
+    public function getFbAlbums($num = -1, $args = [])
+    {
+        $request = [
+            'posts_per_page' => $num,
+            'offset'         => 0,
+            'order'          => 'DESC',
+            'orderby'        => 'date_posted',
+            'post_type'      => 'kma-fb-album',
+            'post_status'    => 'publish',
+        ];
+
+        $request   = array_merge($request, $args);
+        $postArray = get_posts($request);
+
+        $output = [];
+        foreach($postArray as $post){
+            $post->album_name = get_post_meta($post->ID, 'album_name', true);
+            $post->post_link = get_post_meta($post->ID, 'post_link', true);
+            $output[] = $post;
+        }
+
+        return $output;
+    }
+
     // KEEP WP UPDATED WITH FB
 
     public function cron()
@@ -168,7 +192,6 @@ class FacebookController
     public function updateEvents($n = 30)
     {
         $feed = $this->getEvents($n);
-        // echo '<pre>',print_r($feed),'</pre>';
 
         if($feed->posts){
 

@@ -12,9 +12,9 @@ $eventDates = $end != null && $end->diffInDays($start) > 1 ? $start->copy()->for
 ?>
 <div class="card mini-event">
     <div class="card-image">
-        <figure class="image is-2by1">
+        <figure class="image is-2by1" style="overflow: hidden;">
             <a href="https://www.facebook.com/events/<?= $event->post_title; ?>" target="_blank">
-                <img src="<?= $event->full_image_url ?>" alt="<?php echo $econtent; ?>" >
+                <img src="<?= $event->full_image_url ?>" alt="<?php echo $econtent; ?>" style="height: auto !important;" >
             </a>
         </figure>
     </div>

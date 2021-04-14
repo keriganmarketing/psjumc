@@ -1,6 +1,8 @@
 <?php
 
-use KeriganSolutions\FacebookPhotoGallery\FacebookPhotoGallery;
+// use KeriganSolutions\FacebookPhotoGallery\FacebookPhotoGallery;
+use Includes\Modules\KMAFacebook\FacebookController;
+
 
 /**
  * @package KMA
@@ -16,8 +18,8 @@ $before  = $_GET['before'] ?? null;
 // Cursor after the returned data set
 $after   = $_GET['after'] ?? null;
 
-$gallery = new FacebookPhotoGallery();
-$albums   = $gallery->albums(12, $before, $after);
+$facebook = new FacebookController();
+$albums   = $facebook->getFbAlbums();
 
 include(locate_template('template-parts/sections/top.php'));
 ?>
@@ -36,18 +38,21 @@ include(locate_template('template-parts/sections/top.php'));
 
                 <div class="columns is-multiline photo-gallery">
                     <?php
-                    foreach ($albums->data as $album) { ?>
-                        <div class="column is-3">
-                            <figure class="image is-4by3">
-                                <a href="/album/?albumName=<?= $album->name ?>&albumId=<?= $album->id ?>">
-                                    <img src="<?= $album->cover_photo->images[4]->source ?>" alt="<?= $album->name ?>" class="img">
-                                </a>
-                            </figure>
-                            <p class="has-text-centered"><?= $album->name ?></p>
-                        </div>
-                    <?php
-                    }
-                    ?>
+                    if(count($albums) > 0){
+                        foreach ($albums as $album) { ?>
+                            <div class="column is-3">
+                                <figure class="image is-4by3">
+                                    <a href="/album/?albumName=<?= $album->name ?>&albumId=<?= $album->id ?>">
+                                        <img src="<?= $album->cover_photo->images[4]->source ?>" alt="<?= $album->name ?>" class="img">
+                                    </a>
+                                </figure>
+                                <p class="has-text-centered"><?= $album->name ?></p>
+                            </div>
+                        <?php
+                        }
+                    } else { ?>
+                        <p style="padding: 1rem;">Our online photo albums are undergoing maintenance. Please <a href="https://www.facebook.com/pg/FUMC.PSJFL/photos/?tab=albums" target="_blank" rel="noopener" >visit our Facebook page</a> to view photos.</p>
+                    <?php } ?>
                 </div>
                 <?php include(locate_template('template-parts/partials/facebook-album-pagination.php')); ?>
             </div>
