@@ -13,7 +13,7 @@
     "bulma": "^0.6.1",
     "cross-env": "^5.1.1",
     "font-awesome": "^4.7.0",
-    "laravel-mix": "0.*",
+    "laravel-mix": "6.*",
     "vue": "^2.5.3"
   },
   "dependencies": {
